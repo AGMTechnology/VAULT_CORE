@@ -55,9 +55,9 @@ export function generateBootstrapFolder(workspacePath, payload) {
     "    description: \"Required docs must be reviewed before moving to in-progress.\"",
     "  - id: central-memory-only",
     "    severity: blocker",
-    "    description: \"Use VAULT_2 central memory endpoint only.\"",
+    "    description: \"Use VAULT_CORE memory hub endpoint only.\"",
     "memory:",
-    "  endpoint: \"http://127.0.0.1:3022/api/memory\"",
+    "  endpoint: \"/api/memory\"",
   ].join("\n");
 
   const recommendedSkills = [];
@@ -115,7 +115,7 @@ export function generateBootstrapFolder(workspacePath, payload) {
     `- Test tooling: ${payload.analysis.testTooling.join(", ") || "n/a"}`,
     "",
     "## Memory reminders",
-    "- Include contextual lessons from VAULT_2 before publication.",
+    "- Include contextual lessons from VAULT_CORE Memory Hub before publication.",
   ].join("\n");
 
   const executionChecklistContent = [
@@ -126,7 +126,7 @@ export function generateBootstrapFolder(workspacePath, payload) {
     "- [ ] Write failing tests first.",
     "- [ ] Implement minimal changes to pass tests.",
     "- [ ] Add `[DEV_DONE]` evidence before in-review.",
-    "- [ ] Push lessons to VAULT_2 central memory.",
+    "- [ ] Push lessons to VAULT_CORE Memory Hub.",
   ].join("\n");
 
   const files = [

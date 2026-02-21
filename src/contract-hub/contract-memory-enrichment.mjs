@@ -75,11 +75,22 @@ export async function enrichContractWithMemoryContext(contract, memoryHubClient)
     return enriched;
   }
 
-  const response = await memoryHubClient.listEntries({
-    projectId: "all",
-    searchQuery,
-    limit: 50,
-  });
+  const projectId = toTrimmedString(enriched?.meta?.projectId) || "all";
+  let response;
+  try {
+    response = await Promise.resolve(
+      memoryHubClient.listEntries({
+        projectId,
+        searchQuery,
+        limit: 50,
+      }),
+    );
+  } catch {
+    response = {
+      ok: false,
+      entries: [],
+    };
+  }
 
   if (!response.ok) {
     currentMemory.fallbackUsed = true;

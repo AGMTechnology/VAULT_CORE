@@ -21,4 +21,4 @@ Read and apply these files before implementation:
 
 - Assigned agent only can start execution.
 - Strict TDD (`red -> green`) is mandatory.
-- Push delivery lessons to VAULT_2 central memory after ticket completion.
+- Push delivery lessons to the native VAULT_CORE Memory Hub after ticket completion.

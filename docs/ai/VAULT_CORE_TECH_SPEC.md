@@ -45,6 +45,15 @@ Before any agent execution, orchestrator builds one package:
 
 This package is immutable for one execution run and stored in audit trail.
 
+### 2.4 Native Memory Hub requirement
+
+Memory Hub is a first-class VAULT_CORE domain and must run inside VAULT_CORE runtime.
+
+Rules:
+- No runtime dependency on VAULT_2 for contract enrichment.
+- Memory read/write API is exposed by VAULT_CORE (`/api/memory`).
+- Legacy VAULT_2 import/sync is migration-only, not an execution prerequisite.
+
 ## 3. Context Intake & Bootstrap Layer
 
 When a user plugs a Git repo or local folder, VAULT_CORE must:

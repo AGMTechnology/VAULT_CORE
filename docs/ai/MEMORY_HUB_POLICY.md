@@ -2,37 +2,36 @@
 
 ## Source of truth
 
-VAULT_CORE uses **VAULT_2 central memory hub** as the only authoritative memory source:
+VAULT_CORE uses its **native Memory Hub** as the authoritative source for memory retrieval and storage.
 
-- Base URL: `http://127.0.0.1:3022`
-- Endpoint: `http://127.0.0.1:3022/api/memory`
+- API route: `/api/memory`
+- Persistence: VAULT_CORE local data store (`data/memory-hub`)
 
-Project-local memory endpoints are legacy-only and must not drive contract enrichment.
+VAULT_CORE must not depend on VAULT_2 runtime availability to create contracts or run quality gates.
 
 ## Read policy
 
-Before contract publication/execution, VAULT_CORE retrieves contextual memory from VAULT_2:
+Before contract publication/execution, VAULT_CORE retrieves contextual memory from its own Memory Hub:
 
-- retrieval is centralized (`projectId=all`) for cross-project lessons
-- context is narrowed by ticket/reference query signals
-- retrieved entries are injected into `memoryContext.entries`
-- source session ids are extracted into `memoryContext.sourceSessionIds`
+- filter by project scope (`projectId`) and ticket/reference query
+- inject retrieved entries into `memoryContext.entries`
+- extract `source-session:*` refs into `memoryContext.sourceSessionIds`
 
 ## Write policy
 
-Delivery lessons and post-mortem entries are pushed to VAULT_2 first.  
-Legacy mirrors are optional and compatibility-only.
+Delivery lessons and post-mortem entries are pushed to VAULT_CORE Memory Hub first.
+
+Optional migration/import from VAULT_2 can be executed as a one-time synchronization task, but this is not a runtime dependency.
 
 ## Fallback policy
 
-If VAULT_2 is unavailable or times out:
+If the memory provider is unavailable:
 
 - contract creation remains available
 - `memoryContext.fallbackUsed` is set to `true`
-- previously provided memory payload is preserved
-- no local endpoint substitution is performed automatically
+- existing in-contract memory payload is preserved
 
 ## Compatibility note
 
-Legacy workflows that still require local memory evidence can mirror the same entry
-after central write succeeds. This mirror never replaces central memory as source of truth.
+During migration, mirrored writes to legacy systems can exist temporarily.  
+They do not replace VAULT_CORE Memory Hub as source of truth.

@@ -27,6 +27,8 @@ Internal composition starts as a modular monolith with strict domain boundaries:
 - Execution Orchestrator
 - **Context Intake & Bootstrap**
 
+Memory Hub is native to VAULT_CORE and must not depend on VAULT_2 runtime availability for contract execution.
+
 Service extraction is deferred and only triggered by measurable scale/team constraints.
 
 ## Alternatives considered
@@ -52,6 +54,7 @@ Positive:
 - one stable API for web, desktop, and agents
 - consistent contract/rules/memory enforcement
 - easier enterprise onboarding path
+- memory retrieval and write path remain available inside VAULT_CORE boundary
 
 Negative:
 - requires explicit architecture governance to keep modules clean

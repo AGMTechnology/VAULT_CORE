@@ -1,7 +1,9 @@
+import path from "node:path";
+
 import { createContractHubService } from "../contract-hub/contract-hub-service.mjs";
 import { enrichContractWithMemoryContext } from "../contract-hub/contract-memory-enrichment.mjs";
 import { getContractSchemaPath, readContractSchema } from "../contract-hub/contract-hub-validation.mjs";
-import { createMemoryHubClient } from "../memory-hub/memory-hub-client.mjs";
+import { createMemoryHubService } from "../memory-hub/memory-hub-service.mjs";
 
 function toTrimmedString(value) {
   return typeof value === "string" ? value.trim() : "";
@@ -22,17 +24,17 @@ function toPayload(response) {
 
 export function createContractHubApi(options = {}) {
   const service = createContractHubService({ dataDir: options.dataDir });
-  const memoryHubClient = createMemoryHubClient({
-    baseUrl: options.memoryHubBaseUrl,
-    timeoutMs: options.memoryHubTimeoutMs,
-    fetchImpl: options.fetchImpl,
-  });
+  const memoryHub =
+    options.memoryHubProvider ||
+    createMemoryHubService({
+      dataDir: options.memoryDataDir || path.join(options.dataDir || process.cwd(), "memory-hub"),
+    });
 
   return {
     async postContract(payload = {}) {
       const contract = payload.contract ?? payload;
       const actor = toTrimmedString(payload.actor) || "vault-core-architect";
-      const contractWithMemory = await enrichContractWithMemoryContext(contract, memoryHubClient);
+      const contractWithMemory = await enrichContractWithMemoryContext(contract, memoryHub);
       const result = service.createContract(contractWithMemory, actor);
       if (!result.ok) {
         return toPayload(result);
@@ -109,14 +111,26 @@ export function createContractHubApi(options = {}) {
     },
 
     async getMemoryEntries(query = {}) {
-      const response = await memoryHubClient.listEntries({
-        projectId: toTrimmedString(query.projectId) || "all",
-        searchQuery: toTrimmedString(query.searchQuery || query.query),
-        featureScope: toTrimmedString(query.featureScope),
-        taskType: toTrimmedString(query.taskType),
-        agentId: toTrimmedString(query.agentId),
-        limit: query.limit,
-      });
+      let response;
+      try {
+        response = await Promise.resolve(
+          memoryHub.listEntries({
+            projectId: toTrimmedString(query.projectId) || "all",
+            searchQuery: toTrimmedString(query.searchQuery || query.query),
+            featureScope: toTrimmedString(query.featureScope),
+            taskType: toTrimmedString(query.taskType),
+            agentId: toTrimmedString(query.agentId),
+            limit: query.limit,
+          }),
+        );
+      } catch {
+        response = {
+          ok: false,
+          status: 503,
+          error: "Memory hub unavailable",
+          entries: [],
+        };
+      }
       if (!response.ok) {
         return {
           status: response.status,
@@ -135,7 +149,16 @@ export function createContractHubApi(options = {}) {
     },
 
     async postMemoryEntry(payload = {}) {
-      const response = await memoryHubClient.appendEntry(payload);
+      let response;
+      try {
+        response = await Promise.resolve(memoryHub.appendEntry(payload));
+      } catch {
+        response = {
+          ok: false,
+          status: 503,
+          error: "Memory hub unavailable",
+        };
+      }
       if (!response.ok) {
         return {
           status: response.status,

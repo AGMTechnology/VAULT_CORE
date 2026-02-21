@@ -21,4 +21,4 @@ Use this checklist before working any VAULT_CORE ticket.
 ## 3. Delivery evidence
 - [ ] Tests green with reproducible command list.
 - [ ] Ticket comment includes `[DEV_DONE]` evidence.
-- [ ] Lessons pushed to VAULT_2 central memory.
+- [ ] Lessons pushed to the native VAULT_CORE Memory Hub.

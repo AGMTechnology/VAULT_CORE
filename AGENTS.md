@@ -7,4 +7,4 @@ Mandatory for every ticket:
 - Follow strict TDD (failing tests first, then implementation).
 - Keep changes scoped to the assigned ticket.
 - Respect assigned-agent-only execution.
-- Record delivery evidence in ticket comments and central memory (VAULT_2).
+- Record delivery evidence in ticket comments and the native VAULT_CORE Memory Hub.
