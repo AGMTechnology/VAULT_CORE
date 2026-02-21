@@ -123,6 +123,8 @@ export function createRulesHubService() {
     const actor = toTrimmedString(input?.actor) || "system";
     const fromState = toTrimmedString(input?.fromState);
     const toState = toTrimmedString(input?.toState);
+    const agentProfile = input?.agentProfile ?? null;
+    const requiredPermission = toLower(input?.requiredPermission);
     const gateKey = getGateKeyForTransition(toState);
     const gateRules = normalizeGateRules(contract, gateKey);
     const violations = [];
@@ -135,6 +137,40 @@ export function createRulesHubService() {
         message: `Assigned agent is ${contract?.meta?.assignee}; actor ${actor} is not allowed for this transition.`,
         action: "Use assigned agent or reassign the contract before transition.",
       });
+    }
+
+    if (agentProfile === null) {
+      addViolation(violations, {
+        ruleId: "agent-profile-required",
+        severity: "blocker",
+        scope: "agent",
+        message: `No agent profile found for actor ${actor}.`,
+        action: "Create/activate agent profile before transition.",
+      });
+    } else {
+      if (toLower(agentProfile.status) !== "active") {
+        addViolation(violations, {
+          ruleId: "agent-must-be-active",
+          severity: "blocker",
+          scope: "agent",
+          message: `Agent ${agentProfile.agentId} is not active.`,
+          action: "Activate the agent profile before transition.",
+        });
+      }
+      if (requiredPermission) {
+        const permissions = Array.isArray(agentProfile.permissions)
+          ? agentProfile.permissions.map((item) => toLower(item))
+          : [];
+        if (!permissions.includes(requiredPermission)) {
+          addViolation(violations, {
+            ruleId: "agent-permission-required",
+            severity: "blocker",
+            scope: "agent",
+            message: `Agent ${agentProfile.agentId} lacks permission ${requiredPermission}.`,
+            action: "Grant required permission before transition.",
+          });
+        }
+      }
     }
 
     if (!isNonEmptyStringArray(contract?.docsChecklist?.requiredDocs)) {

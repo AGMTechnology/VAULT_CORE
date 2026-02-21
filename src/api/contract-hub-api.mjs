@@ -4,6 +4,7 @@ import { createContractHubService } from "../contract-hub/contract-hub-service.m
 import { enrichContractWithMemoryContext } from "../contract-hub/contract-memory-enrichment.mjs";
 import { enrichContractWithSkillsBundle } from "../contract-hub/contract-skills-enrichment.mjs";
 import { getContractSchemaPath, readContractSchema } from "../contract-hub/contract-hub-validation.mjs";
+import { createAgentHubService } from "../agent-hub/agent-hub-service.mjs";
 import { createMemoryHubService } from "../memory-hub/memory-hub-service.mjs";
 import { createSkillsHubService } from "../skills-hub/skills-hub-service.mjs";
 
@@ -26,7 +27,16 @@ function toPayload(response) {
 }
 
 export function createContractHubApi(options = {}) {
-  const service = createContractHubService({ dataDir: options.dataDir });
+  const agentHub =
+    options.agentHubProvider ||
+    createAgentHubService({
+      dataDir: options.agentDataDir || path.join(options.dataDir || process.cwd(), "agent-hub"),
+    });
+  const service = createContractHubService({
+    dataDir: options.dataDir,
+    agentHub,
+    agentDataDir: options.agentDataDir || path.join(options.dataDir || process.cwd(), "agent-hub"),
+  });
   const memoryHub =
     options.memoryHubProvider ||
     createMemoryHubService({
@@ -257,6 +267,123 @@ export function createContractHubApi(options = {}) {
         status: response.status,
         body: {
           matches: response.matches ?? [],
+        },
+      };
+    },
+
+    async postAgentProfile(payload = {}) {
+      const response = await Promise.resolve(agentHub.upsertProfile(payload));
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+            details: response.details ?? [],
+          },
+        };
+      }
+      return {
+        status: response.status,
+        body: {
+          profile: response.profile,
+        },
+      };
+    },
+
+    async getAgentProfiles(query = {}) {
+      const response = await Promise.resolve(
+        agentHub.listProfiles({
+          status: toTrimmedString(query.status),
+        }),
+      );
+      return {
+        status: 200,
+        body: {
+          profiles: response.profiles,
+        },
+      };
+    },
+
+    async getAgentProfile(agentId) {
+      const profile = agentHub.getProfile(agentId);
+      if (!profile) {
+        return {
+          status: 404,
+          body: {
+            error: "Agent profile not found",
+          },
+        };
+      }
+      return {
+        status: 200,
+        body: {
+          profile,
+        },
+      };
+    },
+
+    async postAgentAssignment(payload = {}) {
+      const response = await Promise.resolve(
+        agentHub.assignContract({
+          agentId: toTrimmedString(payload.agentId),
+          contractId: toTrimmedString(payload.contractId),
+        }),
+      );
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+            details: response.details ?? [],
+          },
+        };
+      }
+      return {
+        status: 200,
+        body: {
+          assignment: response.assignment,
+        },
+      };
+    },
+
+    async deleteAgentAssignment(payload = {}) {
+      const response = await Promise.resolve(
+        agentHub.releaseContract({
+          agentId: toTrimmedString(payload.agentId),
+          contractId: toTrimmedString(payload.contractId),
+        }),
+      );
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+            details: response.details ?? [],
+          },
+        };
+      }
+      return {
+        status: 200,
+        body: {
+          assignment: response.assignment,
+        },
+      };
+    },
+
+    async getAgentWorkload(agentId) {
+      const response = await Promise.resolve(agentHub.getWorkload(agentId));
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+          },
+        };
+      }
+      return {
+        status: 200,
+        body: {
+          workload: response.workload,
         },
       };
     },

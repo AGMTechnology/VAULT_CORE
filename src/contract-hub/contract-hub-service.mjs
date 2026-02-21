@@ -12,6 +12,7 @@ import {
   validateContractSchema,
 } from "./contract-hub-validation.mjs";
 import { createRulesHubService } from "../rules-hub/rules-hub-service.mjs";
+import { createAgentHubService } from "../agent-hub/agent-hub-service.mjs";
 
 const LIFECYCLE_STATES = ["intake", "qualification", "enrichment", "validation", "publication"];
 const TRANSITIONS = {
@@ -32,6 +33,10 @@ function defaultDataDir() {
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
+}
+
+function toTrimmedString(value) {
+  return typeof value === "string" ? value.trim() : "";
 }
 
 function createContractId() {
@@ -73,6 +78,7 @@ function sortByDateDesc(a, b) {
 export function createContractHubService(options = {}) {
   const dataDir = options.dataDir || defaultDataDir();
   const rulesHub = options.rulesHub || createRulesHubService();
+  const agentHub = options.agentHub || createAgentHubService({ dataDir: options.agentDataDir });
 
   function listContracts() {
     return loadContracts(dataDir).sort(sortByDateDesc);
@@ -188,6 +194,8 @@ export function createContractHubService(options = {}) {
       toState,
       actor,
       note,
+      agentProfile: agentHub.getProfile(actor),
+      requiredPermission: "contract.transition",
     });
     appendAudit(createAuditEntry(current.meta.contractId, actor, "POLICY_EVALUATED", policy.audit));
     if (!policy.ok) {
@@ -198,6 +206,29 @@ export function createContractHubService(options = {}) {
         details: policy.diagnostics,
         violations: policy.violations,
       };
+    }
+
+    if (toState === "qualification") {
+      const assignment = agentHub.assignContract({
+        agentId: toTrimmedString(current.meta.assignee || actor),
+        contractId,
+      });
+      if (!assignment.ok) {
+        return {
+          ok: false,
+          status: assignment.status,
+          error: assignment.error,
+          details: assignment.details ?? [],
+        };
+      }
+      appendAudit(
+        createAuditEntry(current.meta.contractId, actor, "AGENT_ASSIGNED", {
+          agentId: toTrimmedString(current.meta.assignee || actor),
+          contractId,
+          activeCount: assignment.assignment?.activeCount ?? null,
+          maxActiveContracts: assignment.assignment?.maxActiveContracts ?? null,
+        }),
+      );
     }
 
     if (toState === "validation") {
@@ -241,6 +272,31 @@ export function createContractHubService(options = {}) {
     }
 
     upsertContract(updated);
+    if (toState === "publication") {
+      const agentId = toTrimmedString(current.meta.assignee || actor);
+      const release = agentHub.releaseContract({
+        agentId,
+        contractId,
+      });
+      if (release.ok) {
+        appendAudit(
+          createAuditEntry(updated.meta.contractId, actor, "AGENT_RELEASED", {
+            agentId,
+            contractId,
+            activeCount: release.assignment?.activeCount ?? null,
+          }),
+        );
+      }
+      const outcome = agentHub.registerOutcome({ agentId, outcome: "done" });
+      if (outcome.ok) {
+        appendAudit(
+          createAuditEntry(updated.meta.contractId, actor, "AGENT_METRICS_UPDATED", {
+            agentId,
+            metrics: outcome.profile?.metrics ?? null,
+          }),
+        );
+      }
+    }
     appendAudit(
       createAuditEntry(updated.meta.contractId, actor, "CONTRACT_STATE_CHANGED", {
         fromState: current.lifecycleState,
