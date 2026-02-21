@@ -13,6 +13,7 @@ import {
 } from "./contract-hub-validation.mjs";
 import { createRulesHubService } from "../rules-hub/rules-hub-service.mjs";
 import { createAgentHubService } from "../agent-hub/agent-hub-service.mjs";
+import { createDocsHubService } from "../docs-hub/docs-hub-service.mjs";
 
 const LIFECYCLE_STATES = ["intake", "qualification", "enrichment", "validation", "publication"];
 const TRANSITIONS = {
@@ -37,6 +38,39 @@ function clone(value) {
 
 function toTrimmedString(value) {
   return typeof value === "string" ? value.trim() : "";
+}
+
+function normalizeStringList(value) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  return Array.from(
+    new Set(
+      value
+        .map((item) => toTrimmedString(item))
+        .filter(Boolean),
+    ),
+  );
+}
+
+function normalizeTransitionInput(toStateOrPayload, actorArg, noteArg) {
+  if (toStateOrPayload && typeof toStateOrPayload === "object") {
+    return {
+      toState: toTrimmedString(toStateOrPayload.toState),
+      actor: toTrimmedString(toStateOrPayload.actor) || "system",
+      note: toTrimmedString(toStateOrPayload.note),
+      docsReviewed: toStateOrPayload.docsReviewed === true,
+      docsReviewedPaths: normalizeStringList(toStateOrPayload.docsReviewedPaths),
+    };
+  }
+
+  return {
+    toState: toTrimmedString(toStateOrPayload),
+    actor: toTrimmedString(actorArg) || "system",
+    note: toTrimmedString(noteArg),
+    docsReviewed: false,
+    docsReviewedPaths: [],
+  };
 }
 
 function createContractId() {
@@ -79,6 +113,7 @@ export function createContractHubService(options = {}) {
   const dataDir = options.dataDir || defaultDataDir();
   const rulesHub = options.rulesHub || createRulesHubService();
   const agentHub = options.agentHub || createAgentHubService({ dataDir: options.agentDataDir });
+  const docsHub = options.docsHub || createDocsHubService({ dataDir: options.docsDataDir });
 
   function listContracts() {
     return loadContracts(dataDir).sort(sortByDateDesc);
@@ -159,7 +194,11 @@ export function createContractHubService(options = {}) {
     };
   }
 
-  function transitionContract(contractId, toState, actor, note) {
+  function transitionContract(contractId, toStateOrPayload, actorArg, noteArg) {
+    const transition = normalizeTransitionInput(toStateOrPayload, actorArg, noteArg);
+    const toState = transition.toState;
+    const actor = transition.actor;
+    const note = transition.note;
     const current = getContract(contractId);
     if (!current) {
       return {
@@ -188,16 +227,54 @@ export function createContractHubService(options = {}) {
       };
     }
 
+    const contractForEvaluation = clone(current);
+    let docsReviewEvidence = null;
+
+    if (toState === "qualification") {
+      const docsResult = docsHub.evaluateExecutionDocs({
+        projectId: toTrimmedString(current.meta?.projectId),
+        requiredDocs: current.docsChecklist?.requiredDocs,
+        reviewedDocs: current.docsChecklist?.reviewedDocs,
+        docsReviewed: transition.docsReviewed,
+        docsReviewedPaths: transition.docsReviewedPaths,
+      });
+      if (!docsResult.ok) {
+        return {
+          ok: false,
+          status: docsResult.status,
+          error: docsResult.error,
+          details: docsResult.details ?? [],
+          requiredDocs: docsResult.requiredDocs ?? [],
+          missingDocs: docsResult.missingDocs ?? [],
+        };
+      }
+
+      contractForEvaluation.docsChecklist = {
+        ...(contractForEvaluation.docsChecklist ?? {}),
+        requiredDocs: docsResult.checklist.requiredDocs,
+        reviewedDocs: docsResult.checklist.reviewedDocs,
+      };
+      docsReviewEvidence = {
+        projectId: docsResult.checklist.projectId,
+        requiredDocs: docsResult.checklist.requiredDocs,
+        reviewedDocs: docsResult.checklist.reviewedDocs,
+        proofSource: docsResult.proofSource,
+        checkedAt: docsResult.checklist.checkedAt,
+      };
+    }
+
     const policy = rulesHub.evaluateTransition({
-      contract: current,
-      fromState: current.lifecycleState,
+      contract: contractForEvaluation,
+      fromState: contractForEvaluation.lifecycleState,
       toState,
       actor,
       note,
       agentProfile: agentHub.getProfile(actor),
       requiredPermission: "contract.transition",
     });
-    appendAudit(createAuditEntry(current.meta.contractId, actor, "POLICY_EVALUATED", policy.audit));
+    appendAudit(
+      createAuditEntry(contractForEvaluation.meta.contractId, actor, "POLICY_EVALUATED", policy.audit),
+    );
     if (!policy.ok) {
       return {
         ok: false,
@@ -210,7 +287,7 @@ export function createContractHubService(options = {}) {
 
     if (toState === "qualification") {
       const assignment = agentHub.assignContract({
-        agentId: toTrimmedString(current.meta.assignee || actor),
+        agentId: toTrimmedString(contractForEvaluation.meta.assignee || actor),
         contractId,
       });
       if (!assignment.ok) {
@@ -222,8 +299,8 @@ export function createContractHubService(options = {}) {
         };
       }
       appendAudit(
-        createAuditEntry(current.meta.contractId, actor, "AGENT_ASSIGNED", {
-          agentId: toTrimmedString(current.meta.assignee || actor),
+        createAuditEntry(contractForEvaluation.meta.contractId, actor, "AGENT_ASSIGNED", {
+          agentId: toTrimmedString(contractForEvaluation.meta.assignee || actor),
           contractId,
           activeCount: assignment.assignment?.activeCount ?? null,
           maxActiveContracts: assignment.assignment?.maxActiveContracts ?? null,
@@ -232,7 +309,7 @@ export function createContractHubService(options = {}) {
     }
 
     if (toState === "validation") {
-      const schemaErrors = validateContractSchema(current);
+      const schemaErrors = validateContractSchema(contractForEvaluation);
       if (schemaErrors.length > 0) {
         return {
           ok: false,
@@ -241,7 +318,7 @@ export function createContractHubService(options = {}) {
           details: schemaErrors,
         };
       }
-      const qualityErrors = validateContractQuality(current);
+      const qualityErrors = validateContractQuality(contractForEvaluation);
       if (qualityErrors.length > 0) {
         return {
           ok: false,
@@ -252,7 +329,7 @@ export function createContractHubService(options = {}) {
       }
     }
 
-    if (toState === "publication" && !current.validationReport?.ok) {
+    if (toState === "publication" && !contractForEvaluation.validationReport?.ok) {
       return {
         ok: false,
         status: 409,
@@ -260,7 +337,7 @@ export function createContractHubService(options = {}) {
       };
     }
 
-    const updated = clone(current);
+    const updated = clone(contractForEvaluation);
     updated.lifecycleState = toState;
     updated.updatedAt = nowIso();
     if (toState === "validation") {
@@ -272,8 +349,15 @@ export function createContractHubService(options = {}) {
     }
 
     upsertContract(updated);
+
+    if (docsReviewEvidence) {
+      appendAudit(
+        createAuditEntry(updated.meta.contractId, actor, "DOCS_REVIEWED", docsReviewEvidence),
+      );
+    }
+
     if (toState === "publication") {
-      const agentId = toTrimmedString(current.meta.assignee || actor);
+      const agentId = toTrimmedString(contractForEvaluation.meta.assignee || actor);
       const release = agentHub.releaseContract({
         agentId,
         contractId,
@@ -299,9 +383,15 @@ export function createContractHubService(options = {}) {
     }
     appendAudit(
       createAuditEntry(updated.meta.contractId, actor, "CONTRACT_STATE_CHANGED", {
-        fromState: current.lifecycleState,
+        fromState: contractForEvaluation.lifecycleState,
         toState,
         note: note ?? "",
+        docsReviewed:
+          docsReviewEvidence?.proofSource === "payload" ||
+          (docsReviewEvidence?.proofSource === "contract" &&
+            Array.isArray(docsReviewEvidence.reviewedDocs) &&
+            docsReviewEvidence.reviewedDocs.length > 0),
+        docsReviewedPaths: docsReviewEvidence?.reviewedDocs ?? [],
       }),
     );
 

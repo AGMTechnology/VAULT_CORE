@@ -5,6 +5,7 @@ import { enrichContractWithMemoryContext } from "../contract-hub/contract-memory
 import { enrichContractWithSkillsBundle } from "../contract-hub/contract-skills-enrichment.mjs";
 import { getContractSchemaPath, readContractSchema } from "../contract-hub/contract-hub-validation.mjs";
 import { createAgentHubService } from "../agent-hub/agent-hub-service.mjs";
+import { createDocsHubService } from "../docs-hub/docs-hub-service.mjs";
 import { createMemoryHubService } from "../memory-hub/memory-hub-service.mjs";
 import { createSkillsHubService } from "../skills-hub/skills-hub-service.mjs";
 
@@ -22,6 +23,8 @@ function toPayload(response) {
       error: response.error,
       details: response.details ?? [],
       violations: response.violations ?? [],
+      requiredDocs: response.requiredDocs ?? [],
+      missingDocs: response.missingDocs ?? [],
     },
   };
 }
@@ -32,10 +35,18 @@ export function createContractHubApi(options = {}) {
     createAgentHubService({
       dataDir: options.agentDataDir || path.join(options.dataDir || process.cwd(), "agent-hub"),
     });
+  const docsHub =
+    options.docsHubProvider ||
+    createDocsHubService({
+      dataDir: options.docsDataDir || path.join(options.dataDir || process.cwd(), "docs-hub"),
+      docsRoot: options.docsRoot || process.cwd(),
+    });
   const service = createContractHubService({
     dataDir: options.dataDir,
     agentHub,
     agentDataDir: options.agentDataDir || path.join(options.dataDir || process.cwd(), "agent-hub"),
+    docsHub,
+    docsDataDir: options.docsDataDir || path.join(options.dataDir || process.cwd(), "docs-hub"),
   });
   const memoryHub =
     options.memoryHubProvider ||
@@ -70,7 +81,17 @@ export function createContractHubApi(options = {}) {
       const actor = toTrimmedString(payload.actor) || "vault-core-architect";
       const toState = toTrimmedString(payload.toState);
       const note = toTrimmedString(payload.note);
-      const result = service.transitionContract(contractId, toState, actor, note);
+      const docsReviewed = payload.docsReviewed === true;
+      const docsReviewedPaths = Array.isArray(payload.docsReviewedPaths)
+        ? payload.docsReviewedPaths
+        : [];
+      const result = service.transitionContract(contractId, {
+        toState,
+        actor,
+        note,
+        docsReviewed,
+        docsReviewedPaths,
+      });
       if (!result.ok) {
         return toPayload(result);
       }
@@ -78,6 +99,44 @@ export function createContractHubApi(options = {}) {
         status: result.status,
         body: {
           contract: result.contract,
+        },
+      };
+    },
+
+    async getProjectDocsChecklist(query = {}) {
+      const projectId = toTrimmedString(query.projectId);
+      const response = docsHub.getProjectChecklist(projectId);
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+          },
+        };
+      }
+      return {
+        status: 200,
+        body: {
+          checklist: response.checklist,
+        },
+      };
+    },
+
+    async postProjectDocsChecklist(payload = {}) {
+      const actor = toTrimmedString(payload.actor) || "vault-core-architect";
+      const response = docsHub.upsertProjectChecklist(payload, actor);
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+          },
+        };
+      }
+      return {
+        status: response.status,
+        body: {
+          checklist: response.checklist,
         },
       };
     },
