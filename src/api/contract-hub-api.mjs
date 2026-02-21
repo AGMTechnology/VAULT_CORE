@@ -18,6 +18,7 @@ function toPayload(response) {
     body: {
       error: response.error,
       details: response.details ?? [],
+      violations: response.violations ?? [],
     },
   };
 }

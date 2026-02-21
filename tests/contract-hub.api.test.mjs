@@ -64,7 +64,10 @@ function makeValidContract(overrides = {}) {
         "docs/ai/VAULT_CORE_TECH_SPEC.md",
         "docs/ai/adr/ADR-0001-vault-core-architecture.md",
       ],
-      reviewedDocs: ["docs/ai/VAULT_CORE_TECH_SPEC.md"],
+      reviewedDocs: [
+        "docs/ai/VAULT_CORE_TECH_SPEC.md",
+        "docs/ai/adr/ADR-0001-vault-core-architecture.md",
+      ],
       ...overrides.docsChecklist,
     },
     qualityGates: {
@@ -79,6 +82,15 @@ function makeValidContract(overrides = {}) {
 
 function createTempDataDir() {
   return fs.mkdtempSync(path.join(os.tmpdir(), "vault-core-contract-hub-"));
+}
+
+function patchStoredContract(dataDir, contractId, patchFn) {
+  const contractsFile = path.join(dataDir, "contracts.json");
+  const rows = JSON.parse(fs.readFileSync(contractsFile, "utf8"));
+  const index = rows.findIndex((item) => item.meta.contractId === contractId);
+  assert.notEqual(index, -1, "Contract should exist in store");
+  rows[index] = patchFn(rows[index]);
+  fs.writeFileSync(contractsFile, `${JSON.stringify(rows, null, 2)}\n`, "utf8");
 }
 
 test("creates a valid contract and executes full intake->publication workflow with audit", async () => {
@@ -197,4 +209,76 @@ test("fails validation stage when quality checks are not testable/comprehensive"
   assert.equal(validate.status, 400);
   assert.equal(validate.body.error, "Contract quality validation failed");
   assert.ok(validate.body.details.some((item) => item.includes("testPlan")));
+});
+
+test("blocks transition when actor does not match assigned agent and records policy audit diagnostics", async () => {
+  const dataDir = createTempDataDir();
+  const api = createContractHubApi({ dataDir });
+  const created = await api.postContract({ contract: makeValidContract(), actor: "vault-core-architect" });
+  assert.equal(created.status, 201);
+  const contractId = created.body.contract.meta.contractId;
+
+  const rejected = await api.postContractTransition(contractId, {
+    toState: "qualification",
+    actor: "another-agent",
+  });
+  assert.equal(rejected.status, 400);
+  assert.equal(rejected.body.error, "Policy gate failed");
+  assert.ok(rejected.body.details.some((item) => item.toLowerCase().includes("assigned")));
+  assert.ok(Array.isArray(rejected.body.violations));
+  assert.ok(rejected.body.violations.some((item) => item.ruleId === "assigned-agent-only"));
+
+  const audit = await api.getContractAudit(contractId);
+  assert.equal(audit.status, 200);
+  assert.ok(
+    audit.body.entries.some(
+      (entry) => entry.action === "POLICY_EVALUATED" && entry.payload?.outcome === "failed",
+    ),
+  );
+});
+
+test("enforces TDD policy gate before validation and returns actionable diagnostics", async () => {
+  const dataDir = createTempDataDir();
+  const api = createContractHubApi({ dataDir });
+  const created = await api.postContract({ contract: makeValidContract(), actor: "vault-core-architect" });
+  assert.equal(created.status, 201);
+  const contractId = created.body.contract.meta.contractId;
+
+  assert.equal(
+    (await api.postContractTransition(contractId, { toState: "qualification", actor: "vault-core-architect" }))
+      .status,
+    200,
+  );
+  assert.equal(
+    (await api.postContractTransition(contractId, { toState: "enrichment", actor: "vault-core-architect" })).status,
+    200,
+  );
+
+  patchStoredContract(dataDir, contractId, (row) => ({
+    ...row,
+    executionPolicy: {
+      ...row.executionPolicy,
+      tddRequired: false,
+    },
+  }));
+
+  const blocked = await api.postContractTransition(contractId, {
+    toState: "validation",
+    actor: "vault-core-architect",
+  });
+  assert.equal(blocked.status, 400);
+  assert.equal(blocked.body.error, "Policy gate failed");
+  assert.ok(blocked.body.details.some((item) => item.toLowerCase().includes("tdd")));
+  assert.ok(blocked.body.violations.some((item) => String(item.ruleId).toLowerCase().includes("tdd")));
+
+  const audit = await api.getContractAudit(contractId);
+  assert.equal(audit.status, 200);
+  assert.ok(
+    audit.body.entries.some(
+      (entry) =>
+        entry.action === "POLICY_EVALUATED" &&
+        entry.payload?.outcome === "failed" &&
+        entry.payload?.toState === "validation",
+    ),
+  );
 });

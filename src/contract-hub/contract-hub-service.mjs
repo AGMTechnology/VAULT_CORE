@@ -11,6 +11,7 @@ import {
   validateContractQuality,
   validateContractSchema,
 } from "./contract-hub-validation.mjs";
+import { createRulesHubService } from "../rules-hub/rules-hub-service.mjs";
 
 const LIFECYCLE_STATES = ["intake", "qualification", "enrichment", "validation", "publication"];
 const TRANSITIONS = {
@@ -71,6 +72,7 @@ function sortByDateDesc(a, b) {
 
 export function createContractHubService(options = {}) {
   const dataDir = options.dataDir || defaultDataDir();
+  const rulesHub = options.rulesHub || createRulesHubService();
 
   function listContracts() {
     return loadContracts(dataDir).sort(sortByDateDesc);
@@ -177,6 +179,24 @@ export function createContractHubService(options = {}) {
         status: 409,
         error: "Invalid workflow transition",
         details: [`Allowed next state from ${current.lifecycleState}: ${allowedNext ?? "none"}`],
+      };
+    }
+
+    const policy = rulesHub.evaluateTransition({
+      contract: current,
+      fromState: current.lifecycleState,
+      toState,
+      actor,
+      note,
+    });
+    appendAudit(createAuditEntry(current.meta.contractId, actor, "POLICY_EVALUATED", policy.audit));
+    if (!policy.ok) {
+      return {
+        ok: false,
+        status: policy.status,
+        error: "Policy gate failed",
+        details: policy.diagnostics,
+        violations: policy.violations,
       };
     }
 
