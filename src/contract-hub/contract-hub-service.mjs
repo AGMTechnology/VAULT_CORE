@@ -14,6 +14,7 @@ import {
 import { createRulesHubService } from "../rules-hub/rules-hub-service.mjs";
 import { createAgentHubService } from "../agent-hub/agent-hub-service.mjs";
 import { createDocsHubService } from "../docs-hub/docs-hub-service.mjs";
+import { createExecutionOrchestratorService } from "../execution-orchestrator/execution-orchestrator-service.mjs";
 
 const LIFECYCLE_STATES = ["intake", "qualification", "enrichment", "validation", "publication"];
 const TRANSITIONS = {
@@ -114,6 +115,9 @@ export function createContractHubService(options = {}) {
   const rulesHub = options.rulesHub || createRulesHubService();
   const agentHub = options.agentHub || createAgentHubService({ dataDir: options.agentDataDir });
   const docsHub = options.docsHub || createDocsHubService({ dataDir: options.docsDataDir });
+  const executionOrchestrator =
+    options.executionOrchestrator ||
+    createExecutionOrchestratorService({ dataDir: options.executionOrchestratorDataDir });
 
   function listContracts() {
     return loadContracts(dataDir).sort(sortByDateDesc);
@@ -402,6 +406,82 @@ export function createContractHubService(options = {}) {
     };
   }
 
+  function buildExecutionPackage(contractId, actor, options = {}) {
+    const current = getContract(contractId);
+    if (!current) {
+      return {
+        ok: false,
+        status: 404,
+        error: "Contract not found",
+      };
+    }
+
+    if (current.lifecycleState !== "publication") {
+      return {
+        ok: false,
+        status: 409,
+        error: "Execution package can be assembled only for published contracts",
+      };
+    }
+
+    const orchestration = executionOrchestrator.assembleExecutionPackage({
+      contract: current,
+      auditEntries: listAudit(contractId),
+      actor,
+      channels: options.channels,
+    });
+    if (!orchestration.ok) {
+      return orchestration;
+    }
+
+    if (!orchestration.reused) {
+      appendAudit(
+        createAuditEntry(contractId, actor, "EXECUTION_PACKAGE_ASSEMBLED", {
+          packageId: orchestration.executionPackage.packageId,
+          fingerprint: orchestration.executionPackage.fingerprint,
+          channels: orchestration.executionPackage.channels,
+          sourceMemoryIds: orchestration.executionPackage.trace?.sourceMemoryIds ?? [],
+          sourceSessionIds: orchestration.executionPackage.trace?.sourceSessionIds ?? [],
+          ruleIds: orchestration.executionPackage.trace?.ruleIds ?? [],
+          skillIds: Array.isArray(orchestration.executionPackage.trace?.skillBundle)
+            ? orchestration.executionPackage.trace.skillBundle.map((item) => item.skillId)
+            : [],
+        }),
+      );
+    }
+
+    return {
+      ok: true,
+      status: orchestration.status,
+      reused: orchestration.reused,
+      executionPackage: orchestration.executionPackage,
+    };
+  }
+
+  function getExecutionPackage(contractId) {
+    const current = getContract(contractId);
+    if (!current) {
+      return {
+        ok: false,
+        status: 404,
+        error: "Contract not found",
+      };
+    }
+    const executionPackage = executionOrchestrator.getExecutionPackage(contractId);
+    if (!executionPackage) {
+      return {
+        ok: false,
+        status: 404,
+        error: "Execution package not found",
+      };
+    }
+    return {
+      ok: true,
+      status: 200,
+      executionPackage,
+    };
+  }
+
   return {
     dataDir,
     listContracts,
@@ -409,5 +489,7 @@ export function createContractHubService(options = {}) {
     listAudit,
     createContract,
     transitionContract,
+    buildExecutionPackage,
+    getExecutionPackage,
   };
 }

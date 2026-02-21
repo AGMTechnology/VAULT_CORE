@@ -47,6 +47,9 @@ export function createContractHubApi(options = {}) {
     agentDataDir: options.agentDataDir || path.join(options.dataDir || process.cwd(), "agent-hub"),
     docsHub,
     docsDataDir: options.docsDataDir || path.join(options.dataDir || process.cwd(), "docs-hub"),
+    executionOrchestratorDataDir:
+      options.executionOrchestratorDataDir ||
+      path.join(options.dataDir || process.cwd(), "execution-orchestrator"),
   });
   const memoryHub =
     options.memoryHubProvider ||
@@ -99,6 +102,46 @@ export function createContractHubApi(options = {}) {
         status: result.status,
         body: {
           contract: result.contract,
+        },
+      };
+    },
+
+    async postExecutionPackage(contractId, payload = {}) {
+      const actor = toTrimmedString(payload.actor) || "vault-core-architect";
+      const channels = Array.isArray(payload.channels) ? payload.channels : undefined;
+      const result = service.buildExecutionPackage(contractId, actor, { channels });
+      if (!result.ok) {
+        return {
+          status: result.status,
+          body: {
+            error: result.error,
+            details: result.details ?? [],
+          },
+        };
+      }
+      return {
+        status: result.status,
+        body: {
+          executionPackage: result.executionPackage,
+          reused: result.reused,
+        },
+      };
+    },
+
+    async getExecutionPackage(contractId) {
+      const result = service.getExecutionPackage(contractId);
+      if (!result.ok) {
+        return {
+          status: result.status,
+          body: {
+            error: result.error,
+          },
+        };
+      }
+      return {
+        status: 200,
+        body: {
+          executionPackage: result.executionPackage,
         },
       };
     },
