@@ -16,6 +16,10 @@ Read and apply these files before implementation:
 ## Local commands
 
 - `npm test` runs bootstrap compliance tests.
+- `npm run dev` starts the React/Next web workspace on `http://127.0.0.1:3026`.
+- `npm run build` builds the Next app for production.
+- `npm run start` runs the built Next app on `http://127.0.0.1:3026`.
+- `npm run test:ui` runs UI/API web integration tests.
 
 ## Workflow baseline
 

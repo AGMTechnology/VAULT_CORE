@@ -8,9 +8,20 @@
     "node": ">=20.20.0 <21",
     "npm": ">=10.8.2 <11"
   },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
   "scripts": {
+    "dev": "next dev -p 3026",
+    "build": "next build",
+    "start": "next start -p 3026",
     "test": "node --test tests",
     "test:tnr": "node --test tests/hardening-e2e.test.mjs tests/execution-orchestrator.integration.test.mjs tests/contract-hub.api.test.mjs",
+    "test:ui": "node --test tests/ui-web.integration.test.mjs",
+    "dev:web": "next dev -p 3026",
+    "start:web": "next start -p 3026",
     "verify:stack": "node scripts/verify-stack.mjs"
   }
 }

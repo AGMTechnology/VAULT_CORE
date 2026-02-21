@@ -285,6 +285,7 @@ export function createContractHubApi(options = {}) {
           status: response.status,
           body: {
             error: response.error,
+            details: response.details ?? [],
           },
         };
       }
