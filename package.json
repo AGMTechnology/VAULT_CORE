@@ -10,6 +10,7 @@
   },
   "scripts": {
     "test": "node --test tests",
+    "test:tnr": "node --test tests/hardening-e2e.test.mjs tests/execution-orchestrator.integration.test.mjs tests/contract-hub.api.test.mjs",
     "verify:stack": "node scripts/verify-stack.mjs"
   }
 }
