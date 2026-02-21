@@ -2,8 +2,10 @@ import path from "node:path";
 
 import { createContractHubService } from "../contract-hub/contract-hub-service.mjs";
 import { enrichContractWithMemoryContext } from "../contract-hub/contract-memory-enrichment.mjs";
+import { enrichContractWithSkillsBundle } from "../contract-hub/contract-skills-enrichment.mjs";
 import { getContractSchemaPath, readContractSchema } from "../contract-hub/contract-hub-validation.mjs";
 import { createMemoryHubService } from "../memory-hub/memory-hub-service.mjs";
+import { createSkillsHubService } from "../skills-hub/skills-hub-service.mjs";
 
 function toTrimmedString(value) {
   return typeof value === "string" ? value.trim() : "";
@@ -30,13 +32,19 @@ export function createContractHubApi(options = {}) {
     createMemoryHubService({
       dataDir: options.memoryDataDir || path.join(options.dataDir || process.cwd(), "memory-hub"),
     });
+  const skillsHub =
+    options.skillsHubProvider ||
+    createSkillsHubService({
+      dataDir: options.skillsDataDir || path.join(options.dataDir || process.cwd(), "skills-hub"),
+    });
 
   return {
     async postContract(payload = {}) {
       const contract = payload.contract ?? payload;
       const actor = toTrimmedString(payload.actor) || "vault-core-architect";
       const contractWithMemory = await enrichContractWithMemoryContext(contract, memoryHub);
-      const result = service.createContract(contractWithMemory, actor);
+      const contractWithSkills = await enrichContractWithSkillsBundle(contractWithMemory, skillsHub);
+      const result = service.createContract(contractWithSkills, actor);
       if (!result.ok) {
         return toPayload(result);
       }
@@ -172,6 +180,83 @@ export function createContractHubApi(options = {}) {
         status: response.status || 201,
         body: {
           entry: response.entry,
+        },
+      };
+    },
+
+    async postSkillCard(payload = {}) {
+      let response;
+      try {
+        response = await Promise.resolve(skillsHub.upsertSkillCard(payload));
+      } catch {
+        response = {
+          ok: false,
+          status: 503,
+          error: "Skills hub unavailable",
+          details: [],
+        };
+      }
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+            details: response.details ?? [],
+          },
+        };
+      }
+      return {
+        status: response.status,
+        body: {
+          card: response.card,
+        },
+      };
+    },
+
+    async getSkillCards(query = {}) {
+      const response = await Promise.resolve(
+        skillsHub.listSkillCards({
+          skillId: toTrimmedString(query.skillId),
+          tag: toTrimmedString(query.tag),
+        }),
+      );
+      return {
+        status: 200,
+        body: {
+          cards: response.cards,
+        },
+      };
+    },
+
+    async getSkillCard(skillId, version = "") {
+      const response = await Promise.resolve(skillsHub.getSkillCard(skillId, version));
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+          },
+        };
+      }
+      return {
+        status: 200,
+        body: {
+          card: response.card,
+        },
+      };
+    },
+
+    async postSkillMatch(payload = {}) {
+      const response = await Promise.resolve(
+        skillsHub.matchSkills({
+          contract: payload.contract ?? payload,
+          limit: payload.limit,
+        }),
+      );
+      return {
+        status: response.status,
+        body: {
+          matches: response.matches ?? [],
         },
       };
     },
