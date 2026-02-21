@@ -1,5 +1,7 @@
 import { createContractHubService } from "../contract-hub/contract-hub-service.mjs";
+import { enrichContractWithMemoryContext } from "../contract-hub/contract-memory-enrichment.mjs";
 import { getContractSchemaPath, readContractSchema } from "../contract-hub/contract-hub-validation.mjs";
+import { createMemoryHubClient } from "../memory-hub/memory-hub-client.mjs";
 
 function toTrimmedString(value) {
   return typeof value === "string" ? value.trim() : "";
@@ -20,12 +22,18 @@ function toPayload(response) {
 
 export function createContractHubApi(options = {}) {
   const service = createContractHubService({ dataDir: options.dataDir });
+  const memoryHubClient = createMemoryHubClient({
+    baseUrl: options.memoryHubBaseUrl,
+    timeoutMs: options.memoryHubTimeoutMs,
+    fetchImpl: options.fetchImpl,
+  });
 
   return {
     async postContract(payload = {}) {
       const contract = payload.contract ?? payload;
       const actor = toTrimmedString(payload.actor) || "vault-core-architect";
-      const result = service.createContract(contract, actor);
+      const contractWithMemory = await enrichContractWithMemoryContext(contract, memoryHubClient);
+      const result = service.createContract(contractWithMemory, actor);
       if (!result.ok) {
         return toPayload(result);
       }
@@ -96,6 +104,50 @@ export function createContractHubApi(options = {}) {
         body: {
           schemaPath: getContractSchemaPath(),
           schema: readContractSchema(),
+        },
+      };
+    },
+
+    async getMemoryEntries(query = {}) {
+      const response = await memoryHubClient.listEntries({
+        projectId: toTrimmedString(query.projectId) || "all",
+        searchQuery: toTrimmedString(query.searchQuery || query.query),
+        featureScope: toTrimmedString(query.featureScope),
+        taskType: toTrimmedString(query.taskType),
+        agentId: toTrimmedString(query.agentId),
+        limit: query.limit,
+      });
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+            entries: [],
+          },
+        };
+      }
+      return {
+        status: 200,
+        body: {
+          entries: response.entries,
+        },
+      };
+    },
+
+    async postMemoryEntry(payload = {}) {
+      const response = await memoryHubClient.appendEntry(payload);
+      if (!response.ok) {
+        return {
+          status: response.status,
+          body: {
+            error: response.error,
+          },
+        };
+      }
+      return {
+        status: response.status || 201,
+        body: {
+          entry: response.entry,
         },
       };
     },

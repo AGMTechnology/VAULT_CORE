@@ -10,6 +10,7 @@ This folder contains the normative documents for VAULT_CORE.
 ## Engineering standards
 - `VAULT_CORE_STACK_MATRIX.md`
 - `VAULT_CORE_MIGRATION_ROADMAP.md`
+- `MEMORY_HUB_POLICY.md`
 
 ## Contracts
 - `contracts/vault-core-contract-v1.schema.json`
