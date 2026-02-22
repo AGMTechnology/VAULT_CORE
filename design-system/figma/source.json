@@ -1,0 +1,312 @@
+{
+  "figmaUrl": "https://www.figma.com/design/QdYqMAOskC1sjd7mCyXoq4/Untitled?node-id=2-6507&m=dev",
+  "fileKey": "QdYqMAOskC1sjd7mCyXoq4",
+  "rootNodeId": "2:6507",
+  "capturedAt": "2026-02-21",
+  "source": "Figma MCP",
+  "extractionStatus": {
+    "designContext": "blocked",
+    "metadata": "partially-available",
+    "reason": "Figma MCP tool call limit reached for current seat"
+  },
+  "mcpErrors": [
+    {
+      "tool": "get_design_context",
+      "message": "You've reached the Figma MCP tool call limit for your expert seat in pro plan.",
+      "recordedAt": "2026-02-21"
+    }
+  ],
+  "supplementalScreens": [
+    {
+      "title": "Agent Control Buttons",
+      "source": "user-provided screenshot",
+      "capturedAt": "2026-02-21",
+      "tokens": {
+        "buttons": [
+          "Execute",
+          "Pause",
+          "Retry",
+          "Approve",
+          "Reject",
+          "Review"
+        ]
+      }
+    },
+    {
+      "title": "Icon Specifications",
+      "source": "user-provided screenshot",
+      "capturedAt": "2026-02-21",
+      "tokens": {
+        "LIBRARY": "Lucide React",
+        "STROKE WEIGHT": "1.75px",
+        "DEFAULT SIZE": "16px (w-4 h-4)",
+        "STYLE": "Outlined, geometric"
+      }
+    }
+  ],
+  "extractedNodes": [
+    {
+      "nodeId": "2:484",
+      "name": "French Flag Palette",
+      "tokens": {
+        "Navy": "#0D2B6B",
+        "Sky Blue": "#9DC3DE",
+        "White": "#FFFFFF",
+        "Dusty Rose": "#C49BA3",
+        "Crimson": "#8B1228"
+      }
+    },
+    {
+      "nodeId": "2:531",
+      "name": "Primary",
+      "tokens": {
+        "50": "#EBF0F8",
+        "100": "#D2DFEF",
+        "200": "#A6BFE0",
+        "300": "#799FD0",
+        "400": "#4D7FC1",
+        "500": "#1E5FAB",
+        "600": "#184D8E",
+        "700": "#123B71",
+        "800": "#0D2B6B",
+        "900": "#091D4A",
+        "950": "#050F29"
+      }
+    },
+    {
+      "nodeId": "2:604",
+      "name": "Neutral Scale",
+      "tokens": {
+        "950": "#020617",
+        "900": "#0F172A",
+        "850": "#1E293B",
+        "800": "#334155",
+        "750": "#3F4E63",
+        "700": "#475569",
+        "600": "#64748B",
+        "500": "#94A3B8",
+        "400": "#CBD5E1",
+        "300": "#E2E8F0",
+        "200": "#F1F5F9",
+        "100": "#F8FAFC",
+        "50": "#FFFFFF"
+      }
+    },
+    {
+      "nodeId": "2:689",
+      "name": "Semantic Colors",
+      "tokens": {
+        "Success": "#10B981",
+        "Warning": "#F59E0B",
+        "Error": "#C41E3A",
+        "Info": "#2563EB"
+      }
+    },
+    {
+      "nodeId": "2:736",
+      "name": "Workflow States",
+      "tokens": {
+        "Pending": "#94A3B8",
+        "Running": "#0D2B6B",
+        "Blocked": "#F59E0B",
+        "Validated": "#10B981",
+        "Failed": "#C41E3A"
+      }
+    },
+    {
+      "nodeId": "2:773",
+      "name": "Agent States",
+      "tokens": {
+        "Idle": "#94A3B8",
+        "Active": "#0D2B6B",
+        "Processing": "#2E8BC0",
+        "Error": "#C41E3A",
+        "Complete": "#10B981"
+      }
+    },
+    {
+      "nodeId": "2:810",
+      "name": "Quality Gate States",
+      "tokens": {
+        "Not Started": "#94A3B8",
+        "In Review": "#F59E0B",
+        "Passed": "#10B981",
+        "Failed": "#C41E3A",
+        "Skipped": "#CBD5E1"
+      }
+    },
+    {
+      "nodeId": "2:847",
+      "name": "Surface Layers",
+      "tokens": {
+        "Surface 0": "#F8FAFC",
+        "Surface 1": "#FFFFFF",
+        "Surface 2": "#F1F5F9",
+        "Surface 3": "#E2E8F0",
+        "Surface 4": "#D5DDE8"
+      }
+    },
+    {
+      "nodeId": "2:897",
+      "name": "Border Tokens + Overlay Tokens",
+      "tokens": {
+        "Border Tokens.default": "rgba(13,43,107,0.10)",
+        "Border Tokens.subtle": "rgba(13,43,107,0.05)",
+        "Border Tokens.strong": "rgba(13,43,107,0.18)"
+      },
+      "partial": {
+        "Overlay Tokens": [
+          "lightHover states",
+          "mediumModals",
+          "heavyFull overlays"
+        ]
+      }
+    },
+    {
+      "nodeId": "2:1058",
+      "name": "Font Families",
+      "tokens": {
+        "PRIMARY — INTERFACE": "Inter",
+        "SECONDARY — CODE / DATA": "JetBrains Mono",
+        "PRIMARY weights": [
+          300,
+          400,
+          500,
+          600,
+          700
+        ]
+      }
+    },
+    {
+      "nodeId": "2:1096",
+      "name": "Type Scale",
+      "tokens": {
+        "Display LG": {
+          "size": "2.25rem",
+          "weight": 600,
+          "lineHeight": 1.2,
+          "letterSpacing": "-0.03em"
+        },
+        "Display MD": {
+          "size": "1.875rem",
+          "weight": 600,
+          "lineHeight": 1.25,
+          "letterSpacing": "-0.025em"
+        },
+        "Display SM": {
+          "size": "1.5rem",
+          "weight": 600,
+          "lineHeight": 1.3,
+          "letterSpacing": "-0.02em"
+        },
+        "Heading LG": {
+          "size": "1.25rem",
+          "weight": 600,
+          "lineHeight": 1.35,
+          "letterSpacing": "-0.015em"
+        },
+        "Heading MD": {
+          "size": "1.125rem",
+          "weight": 500,
+          "lineHeight": 1.4,
+          "letterSpacing": "-0.01em"
+        },
+        "Heading SM": {
+          "size": "1rem",
+          "weight": 500,
+          "lineHeight": 1.4,
+          "letterSpacing": "0"
+        },
+        "Body LG": {
+          "size": "0.875rem",
+          "weight": 400,
+          "lineHeight": 1.6,
+          "letterSpacing": "0"
+        },
+        "Body MD": {
+          "size": "0.8125rem",
+          "weight": 400,
+          "lineHeight": 1.5,
+          "letterSpacing": "0"
+        },
+        "Body SM": {
+          "size": "0.75rem",
+          "weight": 400,
+          "lineHeight": 1.5,
+          "letterSpacing": "0"
+        },
+        "Caption": {
+          "size": "0.6875rem",
+          "weight": 500,
+          "lineHeight": 1.4,
+          "letterSpacing": "0.025em"
+        },
+        "Overline": {
+          "size": "0.625rem",
+          "weight": 600,
+          "lineHeight": 1.4,
+          "letterSpacing": "0.1em"
+        }
+      }
+    },
+    {
+      "nodeId": "2:1471",
+      "name": "Spacing Scale",
+      "tokens": {
+        "0": 0,
+        "px": 1,
+        "0.5": 2,
+        "1": 4,
+        "1.5": 6,
+        "2": 8,
+        "2.5": 10,
+        "3": 12,
+        "4": 16,
+        "5": 20,
+        "6": 24,
+        "8": 32,
+        "10": 40,
+        "12": 48,
+        "16": 64,
+        "20": 80,
+        "24": 96,
+        "32": 128
+      }
+    },
+    {
+      "nodeId": "2:1598",
+      "name": "Grid System",
+      "tokens": {
+        "columns": 12,
+        "gutter": 16,
+        "margin": 24
+      }
+    },
+    {
+      "nodeId": "2:3520",
+      "name": "Motion",
+      "partial": {
+        "Duration Scale": {
+          "slow": "300ms",
+          "unresolvedRows": [
+            "200ms",
+            "500ms"
+          ]
+        },
+        "Easing": {
+          "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+          "spring": "spring"
+        }
+      }
+    }
+  ],
+  "missingFromMcpDueLimit": [
+    "Exact overlay rgba values in Overlay Tokens",
+    "Complete motion duration/easing matrix",
+    "Full radii scale confirmation",
+    "Shadow tokens",
+    "Z-index scale",
+    "Breakpoint scale",
+    "Detailed component variants and interaction states"
+  ]
+}

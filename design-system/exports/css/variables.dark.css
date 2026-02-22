@@ -1,0 +1,21 @@
+[data-theme="dark"] {
+  --vault-color-surface-0: #020617;
+  --vault-color-surface-1: #0F172A;
+  --vault-color-surface-2: #1E293B;
+  --vault-color-text-default: #FFFFFF;
+  --vault-color-text-muted: #CBD5E1;
+  --vault-color-text-inverse: #0D2B6B;
+  --vault-color-border-default: rgba(13,43,107,0.10);
+  --vault-color-border-subtle: rgba(13,43,107,0.05);
+  --vault-color-border-strong: rgba(13,43,107,0.18);
+  --vault-color-primary: #4D7FC1;
+  --vault-color-info: #2563EB;
+  --vault-color-success: #10B981;
+  --vault-color-warning: #F59E0B;
+  --vault-color-error: #C41E3A;
+  --vault-color-focus: #4D7FC1;
+  --vault-color-overlay-light: rgba(13,43,107,0.05);
+  --vault-color-overlay-medium: rgba(13,43,107,0.10);
+  --vault-color-overlay-heavy: rgba(13,43,107,0.18);
+  --vault-color-processing: #2E8BC0;
+}

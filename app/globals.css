@@ -10,6 +10,10 @@
   --vc-accent-soft: rgba(13, 43, 107, 0.06);
   --vc-border: rgba(13, 43, 107, 0.08);
   --vc-border-soft: rgba(13, 43, 107, 0.05);
+  --vc-success: #10b981;
+  --vc-warning: #f59e0b;
+  --vc-danger: #c41e3a;
+  --vc-info: #2563eb;
   --vc-radius-sm: 5px;
   --vc-radius-md: 7px;
   --vc-radius-lg: 11px;
@@ -250,6 +254,93 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }
 
+.vc-agent-controls h3,
+.vc-icon-specs h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.vc-agent-controls p {
+  margin: 4px 0 0;
+  color: var(--vc-text-muted);
+}
+
+.vc-agent-button-row {
+  margin-top: 12px;
+  border: 1px solid #d5dbe4;
+  border-radius: 11px;
+  background: #ffffff;
+  padding: 20px 22px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.vc-agent-btn {
+  --tone: var(--vc-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--tone) 28%, #ffffff);
+  background: color-mix(in srgb, var(--tone) 11%, #ffffff);
+  color: var(--tone);
+  height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.vc-agent-btn.execute,
+.vc-agent-btn.approve {
+  --tone: var(--vc-success);
+}
+
+.vc-agent-btn.pause {
+  --tone: var(--vc-warning);
+}
+
+.vc-agent-btn.retry {
+  --tone: var(--vc-accent);
+}
+
+.vc-agent-btn.reject {
+  --tone: var(--vc-danger);
+}
+
+.vc-agent-btn.review {
+  --tone: var(--vc-info);
+}
+
+.vc-icon-spec-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.vc-icon-spec-card {
+  border: 1px solid #d5dbe4;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 18px 16px;
+}
+
+.vc-icon-spec-card .label {
+  font-family: "JetBrains Mono", Consolas, Menlo, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #9aa7be;
+}
+
+.vc-icon-spec-card .value {
+  margin-top: 8px;
+  font-size: 25px;
+  color: var(--vc-accent);
+}
+
 .vc-card {
   border: 1px solid var(--vc-border);
   border-radius: var(--vc-radius-md);
@@ -272,6 +363,191 @@ body {
 .vc-stack {
   display: grid;
   gap: 8px;
+}
+
+.vc-contract-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.vc-contract-section-head h3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.1px;
+}
+
+.vc-contract-section-head p {
+  margin: 4px 0 0;
+  color: #567091;
+  font-size: 12px;
+}
+
+.vc-contract-create {
+  height: 32px;
+  background: #fff;
+  border-color: #d5dbe4;
+  color: #1e5fab;
+  font-size: 12px;
+}
+
+.vc-contracts-surface {
+  background: #f8fafc;
+  border: 1px solid #e5ebf3;
+  border-radius: 11px;
+  padding: 8px;
+}
+
+.vc-contract-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  gap: 12px;
+}
+
+.vc-contract-card {
+  border: 1px solid #d5dbe4;
+  border-radius: 11px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.vc-contract-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+}
+
+.vc-contract-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--vc-accent-strong);
+}
+
+.vc-contract-title {
+  color: var(--vc-text);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.vc-contract-id {
+  margin-top: 2px;
+  font-family: "JetBrains Mono", Consolas, Menlo, monospace;
+  color: #b0bdd2;
+  font-size: 10px;
+}
+
+.vc-contract-status {
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-family: "JetBrains Mono", Consolas, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.35px;
+}
+
+.vc-contract-status.active {
+  background: rgba(30, 95, 171, 0.08);
+  color: #184d8e;
+}
+
+.vc-contract-status.completed {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+.vc-contract-status.pending {
+  background: rgba(148, 163, 184, 0.18);
+  color: #64748b;
+}
+
+.vc-contract-block {
+  border-top: 1px solid #e8edf3;
+  padding: 12px 16px;
+}
+
+.vc-contract-block-label {
+  font-family: "JetBrains Mono", Consolas, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.45px;
+  color: #8ea2c0;
+  text-transform: uppercase;
+}
+
+.vc-contract-scope {
+  margin: 7px 0 0;
+  color: #2d4666;
+  font-size: 13px;
+}
+
+.vc-contract-criteria {
+  margin: 9px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.vc-contract-criterion {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  color: #2d4666;
+  font-size: 13px;
+}
+
+.vc-contract-criterion svg {
+  margin-top: 2px;
+  color: #93a4bc;
+  flex-shrink: 0;
+}
+
+.vc-contract-criterion.is-done {
+  color: #8fa1b9;
+  text-decoration: line-through;
+}
+
+.vc-contract-criterion.is-done svg {
+  color: #10b981;
+}
+
+.vc-contract-footer {
+  border-top: 1px solid #e8edf3;
+  padding: 9px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.vc-contract-metrics {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.vc-contract-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "JetBrains Mono", Consolas, Menlo, monospace;
+  color: #8ea2c0;
+  font-size: 10px;
+}
+
+.vc-contract-stat.tests {
+  color: #10b981;
+}
+
+.vc-contract-footer .vc-row-actions {
+  margin: 0;
 }
 
 .vc-row {
@@ -362,5 +638,21 @@ body {
 
   .vc-main {
     padding: 16px;
+  }
+
+  .vc-icon-spec-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .vc-contract-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vc-contract-section-head h3 {
+    font-size: 16px;
+  }
+
+  .vc-contract-section-head p {
+    font-size: 12px;
   }
 }

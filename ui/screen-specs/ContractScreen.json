@@ -1,0 +1,37 @@
+{
+  "screenName": "ContractScreen",
+  "sourceScreenshot": "03-contract.png",
+  "layout": {
+    "type": "shell-with-two-columns",
+    "left": "contract-card",
+    "right": ["context-memory", "dependencies"]
+  },
+  "components": [
+    "ScreenShell",
+    "ContractDetailCard",
+    "ContextMemoryPanel",
+    "DependencyChips",
+    "StatusBadge",
+    "ProgressBar"
+  ],
+  "tokenRefs": {
+    "colors": [
+      "Surface Layers.Surface 0",
+      "Surface Layers.Surface 1",
+      "Border Tokens.default",
+      "Workflow States.Running",
+      "Semantic Colors.Success",
+      "Semantic Colors.Warning",
+      "Semantic Colors.Info"
+    ],
+    "typography": ["Heading MD", "Heading SM", "Body LG", "Body MD", "Caption", "Overline"],
+    "spacing": ["1", "2", "3", "4", "5", "6", "8"],
+    "radii": ["11", "7", "5"]
+  },
+  "states": ["default", "loading", "empty-memory", "error"],
+  "interactions": ["select-contract", "move-next-state", "focus-visible"],
+  "assets": [],
+  "todos": [
+    "Wire IDs and counters to live contract API for production usage."
+  ]
+}

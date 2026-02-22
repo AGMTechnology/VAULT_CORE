@@ -1,0 +1,9 @@
+{
+  "screenshots": [
+    { "id": "01-dashboard", "file": "01-dashboard.png", "source": "chat-attachment", "status": "expected" },
+    { "id": "02-execution", "file": "02-execution.png", "source": "chat-attachment", "status": "expected" },
+    { "id": "03-contract", "file": "03-contract.png", "source": "chat-attachment", "status": "expected" },
+    { "id": "04-monitoring", "file": "04-monitoring.png", "source": "chat-attachment", "status": "expected" },
+    { "id": "05-learning", "file": "05-learning.png", "source": "chat-attachment", "status": "expected" }
+  ]
+}

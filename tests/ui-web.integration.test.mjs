@@ -34,6 +34,24 @@ test("serves VAULT_CORE web shell with hub navigation and design tokens", async 
     assert.equal(cssResponse.status, 200);
     const css = await cssResponse.text();
     assert.ok(css.includes("--vc-accent"));
+
+    const jsResponse = await fetch(`${baseUrl}/app.js`);
+    assert.equal(jsResponse.status, 200);
+    const js = await jsResponse.text();
+    assert.ok(js.includes("Agent Control Buttons"));
+    assert.ok(js.includes("Icon Specifications"));
+    assert.ok(js.includes("Execute"));
+    assert.ok(js.includes("Pause"));
+    assert.ok(js.includes("Retry"));
+    assert.ok(js.includes("Approve"));
+    assert.ok(js.includes("Reject"));
+    assert.ok(js.includes("Review"));
+    assert.ok(js.includes("Lucide React"));
+    assert.ok(js.includes("1.75px"));
+    assert.ok(js.includes("16px (w-4 h-4)"));
+    assert.ok(js.includes("Outlined, geometric"));
+    assert.ok(js.includes('stroke-width="1.75"'));
+    assert.ok(css.includes(".vc-agent-btn.execute"));
   });
 });
 

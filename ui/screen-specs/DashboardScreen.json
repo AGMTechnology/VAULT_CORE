@@ -1,0 +1,40 @@
+{
+  "screenName": "DashboardScreen",
+  "sourceScreenshot": "01-dashboard.png",
+  "layout": {
+    "type": "shell-with-grid",
+    "rows": [
+      "kpi-cards-4",
+      "agents-panel-and-quality-gates-panel"
+    ]
+  },
+  "components": [
+    "ScreenShell",
+    "MetricCard",
+    "AgentCard",
+    "QualityGatePanel",
+    "ProgressBar",
+    "StatusBadge"
+  ],
+  "tokenRefs": {
+    "colors": [
+      "Surface Layers.Surface 0",
+      "Surface Layers.Surface 1",
+      "Border Tokens.default",
+      "French Flag Palette.Navy",
+      "Quality Gate States.Not Started",
+      "Semantic Colors.Success",
+      "Semantic Colors.Warning",
+      "Semantic Colors.Info"
+    ],
+    "typography": ["Heading LG", "Heading MD", "Body LG", "Caption", "Overline"],
+    "spacing": ["1", "2", "3", "4", "5", "6", "8"],
+    "radii": ["11", "7", "5"]
+  },
+  "states": ["default", "loading", "empty", "error"],
+  "interactions": ["hover", "focus-visible"],
+  "assets": [],
+  "todos": [
+    "Confirm exact icon glyph mapping if native Figma icon names become available."
+  ]
+}

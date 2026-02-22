@@ -1,0 +1,21 @@
+:root {
+  --vault-color-surface-0: #F8FAFC;
+  --vault-color-surface-1: #FFFFFF;
+  --vault-color-surface-2: #F1F5F9;
+  --vault-color-text-default: #0D2B6B;
+  --vault-color-text-muted: #94A3B8;
+  --vault-color-text-inverse: #FFFFFF;
+  --vault-color-border-default: rgba(13,43,107,0.10);
+  --vault-color-border-subtle: rgba(13,43,107,0.05);
+  --vault-color-border-strong: rgba(13,43,107,0.18);
+  --vault-color-primary: #0D2B6B;
+  --vault-color-info: #2563EB;
+  --vault-color-success: #10B981;
+  --vault-color-warning: #F59E0B;
+  --vault-color-error: #C41E3A;
+  --vault-color-focus: #0D2B6B;
+  --vault-color-overlay-light: rgba(13,43,107,0.05);
+  --vault-color-overlay-medium: rgba(13,43,107,0.10);
+  --vault-color-overlay-heavy: rgba(13,43,107,0.18);
+  --vault-color-processing: #2E8BC0;
+}

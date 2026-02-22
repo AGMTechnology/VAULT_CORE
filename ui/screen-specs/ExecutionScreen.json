@@ -1,0 +1,38 @@
+{
+  "screenName": "ExecutionScreen",
+  "sourceScreenshot": "02-execution.png",
+  "layout": {
+    "type": "shell-with-split",
+    "left": "timeline",
+    "right": ["assigned-agent", "live-trace"]
+  },
+  "components": [
+    "ScreenShell",
+    "TimelineStage",
+    "AgentCard",
+    "TracePanel",
+    "StatusBadge",
+    "ProgressBar"
+  ],
+  "tokenRefs": {
+    "colors": [
+      "Surface Layers.Surface 0",
+      "Surface Layers.Surface 1",
+      "Border Tokens.default",
+      "Workflow States.Validated",
+      "Workflow States.Running",
+      "Workflow States.Pending",
+      "Agent States.Active",
+      "Agent States.Processing"
+    ],
+    "typography": ["Heading MD", "Body LG", "Body MD", "Caption", "Overline"],
+    "spacing": ["1", "2", "3", "4", "5", "6", "8", "10"],
+    "radii": ["11", "7", "5"]
+  },
+  "states": ["default", "loading", "empty-trace", "error"],
+  "interactions": ["focus-visible", "stage-select"],
+  "assets": [],
+  "todos": [
+    "Confirm exact timeline connector stroke if full Figma token extraction becomes available."
+  ]
+}

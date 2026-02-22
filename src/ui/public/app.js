@@ -22,6 +22,22 @@ const state = {
   selectedContractId: "",
 };
 
+const AGENT_CONTROL_BUTTONS = [
+  { label: "Execute", tone: "execute", icon: "play" },
+  { label: "Pause", tone: "pause", icon: "pause" },
+  { label: "Retry", tone: "retry", icon: "rotate-ccw" },
+  { label: "Approve", tone: "approve", icon: "check-circle-2" },
+  { label: "Reject", tone: "reject", icon: "x-circle" },
+  { label: "Review", tone: "review", icon: "eye" },
+];
+
+const ICON_SPECIFICATIONS = [
+  ["LIBRARY", "Lucide React"],
+  ["STROKE WEIGHT", "1.75px"],
+  ["DEFAULT SIZE", "16px (w-4 h-4)"],
+  ["STYLE", "Outlined, geometric"],
+];
+
 const hubRoot = document.querySelector("#hub-root");
 const feedbackRoot = document.querySelector("#feedback");
 const statusRoot = document.querySelector("#status-pill");
@@ -116,6 +132,32 @@ function parseJsonSafe(value) {
   } catch {
     return null;
   }
+}
+
+function lucideIcon(name) {
+  const attrs =
+    'xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+
+  if (name === "play") {
+    return `<svg ${attrs}><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>`;
+  }
+  if (name === "pause") {
+    return `<svg ${attrs}><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>`;
+  }
+  if (name === "rotate-ccw") {
+    return `<svg ${attrs}><path d="M3 2v6h6"></path><path d="M21 12a9 9 0 1 1-2.64-6.36L9 14"></path></svg>`;
+  }
+  if (name === "check-circle-2") {
+    return `<svg ${attrs}><circle cx="12" cy="12" r="9"></circle><path d="m9 12 2 2 4-4"></path></svg>`;
+  }
+  if (name === "x-circle") {
+    return `<svg ${attrs}><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg>`;
+  }
+  if (name === "eye") {
+    return `<svg ${attrs}><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+  }
+
+  return `<svg ${attrs}><circle cx="12" cy="12" r="9"></circle></svg>`;
 }
 
 function defaultContractPayload() {
@@ -218,6 +260,24 @@ async function renderDashboard() {
     )
     .join("");
 
+  const agentButtons = AGENT_CONTROL_BUTTONS.map(
+    (item) => `
+      <button class="vc-agent-btn ${escapeHtml(item.tone)}" type="button">
+        ${lucideIcon(item.icon)}
+        <span>${escapeHtml(item.label)}</span>
+      </button>
+    `,
+  ).join("");
+
+  const iconCards = ICON_SPECIFICATIONS.map(
+    ([label, value]) => `
+      <article class="vc-icon-spec-card">
+        <div class="label">${escapeHtml(label)}</div>
+        <div class="value">${escapeHtml(value)}</div>
+      </article>
+    `,
+  ).join("");
+
   const byState = Object.entries(payload.contractsByState || {})
     .map(
       ([status, count]) => `
@@ -250,6 +310,19 @@ async function renderDashboard() {
     "Contract, memory, agent, skills and docs synthesis",
     `
       <div class="vc-hub-grid">
+        <section class="vc-stack">
+          <h3>Agent Control Buttons</h3>
+          <p class="vc-panel-subtitle">Interactive controls for agent lifecycle management.</p>
+          <div class="vc-agent-button-row">
+            ${agentButtons}
+          </div>
+        </section>
+        <section class="vc-stack">
+          <h3>Icon Specifications</h3>
+          <div class="vc-icon-spec-grid">
+            ${iconCards}
+          </div>
+        </section>
         <div class="vc-cards">${cards}</div>
         <div class="vc-grid-2">
           <section class="vc-stack">

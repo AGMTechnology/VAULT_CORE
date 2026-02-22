@@ -1,0 +1,37 @@
+{
+  "screenName": "LearningScreen",
+  "sourceScreenshot": "05-learning.png",
+  "layout": {
+    "type": "shell-with-two-columns",
+    "left": "lessons-captured",
+    "right": "context-memory"
+  },
+  "components": [
+    "ScreenShell",
+    "LessonItem",
+    "ContextMemoryPanel",
+    "ConfidenceBar",
+    "StatusBadge"
+  ],
+  "tokenRefs": {
+    "colors": [
+      "Surface Layers.Surface 0",
+      "Surface Layers.Surface 1",
+      "Border Tokens.default",
+      "Semantic Colors.Success",
+      "Semantic Colors.Warning",
+      "Semantic Colors.Error",
+      "Semantic Colors.Info",
+      "Quality Gate States.Not Started"
+    ],
+    "typography": ["Heading MD", "Body LG", "Body MD", "Caption", "Overline"],
+    "spacing": ["1", "2", "3", "4", "5", "6", "8"],
+    "radii": ["11", "7", "5"]
+  },
+  "states": ["default", "loading", "empty-lessons", "error"],
+  "interactions": ["row-focus", "item-select"],
+  "assets": [],
+  "todos": [
+    "Use live confidence scores from memory hub when available."
+  ]
+}

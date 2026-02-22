@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { CheckCircle2, Circle, Eye, FileText, FlaskConical, Link2, Pause, Play, RotateCcw, XCircle } from "lucide-react";
 
 const HUBS = [
   { id: "dashboard", label: "Dashboard" },
@@ -19,6 +20,40 @@ const NEXT_STATE = {
   enrichment: "validation",
   validation: "publication",
 };
+
+const AGENT_CONTROL_BUTTONS = [
+  { label: "Execute", tone: "execute", Icon: Play },
+  { label: "Pause", tone: "pause", Icon: Pause },
+  { label: "Retry", tone: "retry", Icon: RotateCcw },
+  { label: "Approve", tone: "approve", Icon: CheckCircle2 },
+  { label: "Reject", tone: "reject", Icon: XCircle },
+  { label: "Review", tone: "review", Icon: Eye },
+];
+
+const ICON_SPECIFICATIONS = [
+  ["LIBRARY", "Lucide React"],
+  ["STROKE WEIGHT", "1.75px"],
+  ["DEFAULT SIZE", "16px (w-4 h-4)"],
+  ["STYLE", "Outlined, geometric"],
+];
+
+const CONTRACT_STATE_PROGRESS = {
+  intake: 0.2,
+  qualification: 0.35,
+  enrichment: 0.55,
+  validation: 0.75,
+  publication: 1,
+};
+
+function getContractStatusBadge(lifecycleState) {
+  if (lifecycleState === "publication") return { label: "COMPLETED", tone: "completed" };
+  if (lifecycleState === "validation" || lifecycleState === "enrichment") return { label: "ACTIVE", tone: "active" };
+  return { label: "PENDING", tone: "pending" };
+}
+
+function getContractProgress(lifecycleState) {
+  return CONTRACT_STATE_PROGRESS[lifecycleState] ?? 0.2;
+}
 
 function defaultContract() {
   return {
@@ -341,33 +376,149 @@ export function VaultCoreWorkspace() {
     if (error) return <div className="vc-error">{error}</div>;
     if (activeHub === "dashboard") {
       return (
-        <div className="vc-cards">
-          {dashboardCards.map((card) => (
-            <article className="vc-card" key={card[0]}>
-              <div className="label">{card[0]}</div>
-              <div className="value">{card[1]}</div>
-            </article>
-          ))}
+        <div className="vc-stack">
+          <section className="vc-agent-controls">
+            <h3>Agent Control Buttons</h3>
+            <p>Interactive controls for agent lifecycle management.</p>
+            <div className="vc-agent-button-row">
+              {AGENT_CONTROL_BUTTONS.map(({ label, tone, Icon }) => (
+                <button className={`vc-agent-btn ${tone}`} key={label} type="button">
+                  <Icon size={16} strokeWidth={1.75} aria-hidden="true" />
+                  <span>{label}</span>
+                </button>
+              ))}
+            </div>
+          </section>
+          <section className="vc-icon-specs">
+            <h3>Icon Specifications</h3>
+            <div className="vc-icon-spec-grid">
+              {ICON_SPECIFICATIONS.map(([label, value]) => (
+                <article className="vc-icon-spec-card" key={label}>
+                  <div className="label">{label}</div>
+                  <div className="value">{value}</div>
+                </article>
+              ))}
+            </div>
+          </section>
+          <div className="vc-cards">
+            {dashboardCards.map((card) => (
+              <article className="vc-card" key={card[0]}>
+                <div className="label">{card[0]}</div>
+                <div className="value">{card[1]}</div>
+              </article>
+            ))}
+          </div>
         </div>
       );
     }
     if (activeHub === "contracts") {
       return (
-        <div className="vc-stack">
-          <button className="vc-button primary" onClick={createSampleContract} type="button">Create sample contract</button>
-          {contracts.map((contract) => {
-            const contractId = contract.meta?.contractId || "unknown";
-            const nextState = NEXT_STATE[contract.lifecycleState];
-            return (
-              <article className="vc-row" key={contractId}>
-                <div className="vc-row-head"><span className="vc-row-title">{contract.scope?.title || contractId}</span><span className="vc-row-meta">{contract.lifecycleState}</span></div>
-                <div className="vc-row-actions">
-                  <button className="vc-button" onClick={() => setSelectedContractId(contractId)} type="button">Select</button>
-                  {nextState ? <button className="vc-button" onClick={() => moveContract(contractId, nextState)} type="button">Move to {nextState}</button> : null}
-                </div>
+        <div className="vc-stack vc-contracts-surface">
+          <div className="vc-contract-section-head">
+            <div>
+              <h3>Contract Card</h3>
+              <p>Execution contract with scope, acceptance criteria, dependencies, and test plan.</p>
+            </div>
+            <button className="vc-button vc-contract-create" onClick={createSampleContract} type="button">Create sample contract</button>
+          </div>
+          <div className="vc-contract-grid">
+            {contracts.map((contract) => {
+              const contractId = contract.meta?.contractId || "unknown";
+              const nextState = NEXT_STATE[contract.lifecycleState];
+              const progress = getContractProgress(contract.lifecycleState);
+              const acceptance = Array.isArray(contract.acceptance) ? contract.acceptance : [];
+              const completedAcceptance = Math.min(
+                acceptance.length,
+                Math.round(acceptance.length * progress)
+              );
+              const dependenciesCount = Array.isArray(contract.scope?.dependencies)
+                ? contract.scope.dependencies.length
+                : 0;
+              const testsTotal = Array.isArray(contract.testPlan) ? contract.testPlan.length : 0;
+              const testsDone = Math.min(testsTotal, Math.round(testsTotal * progress));
+              const status = getContractStatusBadge(contract.lifecycleState);
+
+              return (
+                <article className="vc-contract-card" key={contractId}>
+                  <header className="vc-contract-card-head">
+                    <div className="vc-contract-title-wrap">
+                      <FileText size={16} strokeWidth={1.75} aria-hidden="true" />
+                      <div>
+                        <div className="vc-contract-title">{contract.scope?.title || contractId}</div>
+                        <div className="vc-contract-id">{contractId}</div>
+                      </div>
+                    </div>
+                    <span className={`vc-contract-status ${status.tone}`}>{status.label}</span>
+                  </header>
+                  <section className="vc-contract-block">
+                    <div className="vc-contract-block-label">SCOPE</div>
+                    <p className="vc-contract-scope">
+                      {contract.scope?.summary || "No scope summary available for this contract."}
+                    </p>
+                  </section>
+                  <section className="vc-contract-block">
+                    <div className="vc-contract-block-label">ACCEPTANCE CRITERIA</div>
+                    <ul className="vc-contract-criteria">
+                      {acceptance.length > 0 ? (
+                        acceptance.map((criterion, index) => {
+                          const done = index < completedAcceptance;
+                          return (
+                            <li className={`vc-contract-criterion ${done ? "is-done" : ""}`} key={`${contractId}-criterion-${index}`}>
+                              {done ? (
+                                <CheckCircle2 size={14} strokeWidth={1.75} aria-hidden="true" />
+                              ) : (
+                                <Circle size={14} strokeWidth={1.75} aria-hidden="true" />
+                              )}
+                              <span>{criterion}</span>
+                            </li>
+                          );
+                        })
+                      ) : (
+                        <li className="vc-contract-criterion">
+                          <Circle size={14} strokeWidth={1.75} aria-hidden="true" />
+                          <span>No acceptance criteria defined.</span>
+                        </li>
+                      )}
+                    </ul>
+                  </section>
+                  <footer className="vc-contract-footer">
+                    <div className="vc-contract-metrics">
+                      <span className="vc-contract-stat">
+                        <Link2 size={12} strokeWidth={1.75} aria-hidden="true" />
+                        {dependenciesCount} deps
+                      </span>
+                      <span className="vc-contract-stat tests">
+                        <FlaskConical size={12} strokeWidth={1.75} aria-hidden="true" />
+                        {testsDone}/{testsTotal} tests
+                      </span>
+                    </div>
+                    <div className="vc-row-actions">
+                      <button className="vc-button" onClick={() => setSelectedContractId(contractId)} type="button">Select</button>
+                      {nextState ? (
+                        <button className="vc-button" onClick={() => moveContract(contractId, nextState)} type="button">
+                          Move to {nextState}
+                        </button>
+                      ) : null}
+                    </div>
+                  </footer>
+                </article>
+              );
+            })}
+            {contracts.length === 0 ? (
+              <article className="vc-contract-card vc-contract-card-empty">
+                <header className="vc-contract-card-head">
+                  <div className="vc-contract-title-wrap">
+                    <FileText size={16} strokeWidth={1.75} aria-hidden="true" />
+                    <div>
+                      <div className="vc-contract-title">No contracts yet</div>
+                      <div className="vc-contract-id">Create one to start execution.</div>
+                    </div>
+                  </div>
+                  <span className="vc-contract-status pending">PENDING</span>
+                </header>
               </article>
-            );
-          })}
+            ) : null}
+          </div>
         </div>
       );
     }
