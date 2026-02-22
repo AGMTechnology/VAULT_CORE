@@ -56,7 +56,7 @@ export function GatePanel({ title = "Quality Gates", gates }: GatePanelProps) {
     <section className="ds-gate-panel">
       <header className="ds-gate-panel__header">
         <div className="ds-gate-panel__header-left">
-          <Icon icon={ShieldCheck} tone="primary" />
+          <Icon icon={ShieldCheck} tone="primary-strong" />
           <Text as="h3" size="base">{title}</Text>
         </div>
         <Text size="xs" tone={passed === gates.length && gates.length > 0 ? "success" : "muted"} mono>{passed}/{gates.length}</Text>

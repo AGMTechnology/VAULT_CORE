@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { CheckCircle2, Circle, Eye, FileText, FlaskConical, Link2, Pause, Play, RotateCcw, XCircle } from "lucide-react";
 import {
   AgentCard,
@@ -21,21 +22,11 @@ import {
   Stack,
   Text,
   TextArea,
-  Timeline,
-  Topbar
+  Timeline
 } from "../../design-system/components";
 import { toContractCardViewModel } from "./workspace-adapter";
-
-const HUBS = [
-  { id: "dashboard", label: "Dashboard" },
-  { id: "contracts", label: "Contracts" },
-  { id: "execution", label: "Execution" },
-  { id: "memory", label: "Memory Hub" },
-  { id: "agents", label: "Agent Hub" },
-  { id: "skills", label: "Skills Hub" },
-  { id: "rules", label: "Rules Hub" },
-  { id: "docs", label: "Docs Hub" }
-];
+import { VaultBreadcrumbTopbar } from "./vault-breadcrumb-topbar";
+import { VAULT_HUBS, VaultCoreSidebar } from "./vault-core-sidebar";
 
 const AGENT_CONTROL_BUTTONS = [
   { label: "Execute", tone: "success", Icon: Play },
@@ -52,6 +43,13 @@ const ICON_SPECIFICATIONS = [
   ["DEFAULT SIZE", "16px (w-4 h-4)"],
   ["STYLE", "Outlined, geometric"]
 ];
+
+const WORKSPACE_HUB_IDS = new Set(["dashboard", "contracts", "execution", "memory", "agents", "skills", "rules", "docs"]);
+const EXTERNAL_HUB_ROUTES = {
+  monitoring: "/monitoring",
+  learning: "/learning",
+  git: "/git"
+};
 
 function defaultContract() {
   return {
@@ -126,31 +124,6 @@ async function fetchJson(url, options) {
   return payload;
 }
 
-function VaultSidebar({ activeHub, setActiveHub }) {
-  return (
-    <div className="vc-sidebar">
-      <div className="vc-brand">
-        <div className="vc-brand-icon">V</div>
-        <div className="vc-brand-title">VAULT<b>_CORE</b></div>
-      </div>
-      <Badge tone="primary" mono className="vc-sidebar-badge">DESIGN SYSTEM v2.0</Badge>
-      <nav className="vc-nav">
-        {HUBS.map((hub) => (
-          <button
-            key={hub.id}
-            className={`vc-nav-button ${hub.id === activeHub ? "is-active" : ""}`}
-            onClick={() => setActiveHub(hub.id)}
-            type="button"
-          >
-            {hub.label}
-          </button>
-        ))}
-      </nav>
-      <Text size="2xs" tone="soft" mono className="vc-sidebar-footer">Built for AI orchestration</Text>
-    </div>
-  );
-}
-
 function toAgentState(status) {
   if (status === "active") return "active";
   if (status === "processing") return "processing";
@@ -160,6 +133,7 @@ function toAgentState(status) {
 }
 
 export function VaultCoreWorkspace() {
+  const router = useRouter();
   const [activeHub, setActiveHub] = useState("dashboard");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -176,6 +150,19 @@ export function VaultCoreWorkspace() {
   const [docsChecklist, setDocsChecklist] = useState({ requiredDocs: [], reviewedDocs: [] });
   const [docsText, setDocsText] = useState("");
   const [showCreateConfirm, setShowCreateConfirm] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const requestedHub = new URLSearchParams(window.location.search).get("hub");
+    if (requestedHub && WORKSPACE_HUB_IDS.has(requestedHub)) {
+      setActiveHub(requestedHub);
+      return;
+    }
+
+    if (requestedHub && Object.prototype.hasOwnProperty.call(EXTERNAL_HUB_ROUTES, requestedHub)) {
+      router.replace(EXTERNAL_HUB_ROUTES[requestedHub]);
+    }
+  }, [router]);
 
   const showFeedback = useCallback((type, message) => setFeedback({ type, message }), []);
 
@@ -241,6 +228,14 @@ export function VaultCoreWorkspace() {
     loadHub(activeHub);
   }, [activeHub, loadHub]);
 
+  const handleSidebarHubSelect = useCallback((hubId) => {
+    if (Object.prototype.hasOwnProperty.call(EXTERNAL_HUB_ROUTES, hubId)) {
+      router.push(EXTERNAL_HUB_ROUTES[hubId]);
+      return;
+    }
+    setActiveHub(hubId);
+  }, [router]);
+
   const dashboardCards = useMemo(() => {
     if (!dashboard) return [];
     return [
@@ -252,6 +247,11 @@ export function VaultCoreWorkspace() {
       ["Docs Coverage", dashboard.metrics?.docsReviewedRatio ?? "0%"]
     ];
   }, [dashboard]);
+
+  const activeHubLabel = useMemo(
+    () => VAULT_HUBS.find((hub) => hub.id === activeHub)?.label || activeHub,
+    [activeHub]
+  );
 
   async function createSampleContract() {
     try {
@@ -468,6 +468,22 @@ export function VaultCoreWorkspace() {
           </div>
         </Card>
 
+        <Card className="vc-feature-block">
+          <Text as="h2" size="xl">Screen Shortcuts</Text>
+          <Text size="sm" tone="muted">Open the standalone screens implemented from the design system.</Text>
+          <div className="vc-control-row">
+            <a className="ds-button ds-button--sm ds-button--neutral" href="/monitoring">
+              <span className="ds-button__label">Monitoring</span>
+            </a>
+            <a className="ds-button ds-button--sm ds-button--neutral" href="/learning">
+              <span className="ds-button__label">Learning</span>
+            </a>
+            <a className="ds-button ds-button--sm ds-button--primary" href="/git">
+              <span className="ds-button__label">Git Project Connect</span>
+            </a>
+          </div>
+        </Card>
+
         <div className="vc-metrics-grid">
           {ICON_SPECIFICATIONS.map(([label, value]) => (
             <Card key={label} muted>
@@ -494,7 +510,10 @@ export function VaultCoreWorkspace() {
             <Text as="h2" size="xl">Contract Catalog</Text>
             <Text size="sm" tone="muted">Execution contracts with acceptance, dependencies, and tests.</Text>
           </div>
-          <Button tone="primary" onClick={() => setShowCreateConfirm(true)}>Create sample contract</Button>
+          <div className="vc-contract-head-actions">
+            <Button onClick={() => router.push("/contracts")}>Open Contract Browser</Button>
+            <Button tone="primary" onClick={() => setShowCreateConfirm(true)}>Create sample contract</Button>
+          </div>
         </Card>
         {contracts.length > 0 ? (
           <div className="vc-contract-grid">
@@ -736,11 +755,11 @@ export function VaultCoreWorkspace() {
   return (
     <>
       <SidebarLayout
-        sidebar={<VaultSidebar activeHub={activeHub} setActiveHub={setActiveHub} />}
+        sidebar={<VaultCoreSidebar activeHub={activeHub} onHubSelect={handleSidebarHubSelect} />}
         header={(
-          <Topbar
-            title="VAULT_CORE"
-            subtitle="Unified control plane for contracts, memory, skills, rules and docs."
+          <VaultBreadcrumbTopbar
+            title={activeHubLabel}
+            flat
             actions={(
               <>
                 <Badge tone="neutral" mono>hub: {activeHub}</Badge>

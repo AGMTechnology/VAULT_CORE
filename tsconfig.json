@@ -27,6 +27,8 @@
     "next-env.d.ts",
     "design-system/**/*.ts",
     "design-system/**/*.tsx",
+    "app/**/*.ts",
+    "app/**/*.tsx",
     "app/**/*.js",
     "app/**/*.jsx",
     ".next/types/**/*.ts"

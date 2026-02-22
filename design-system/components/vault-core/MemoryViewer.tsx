@@ -33,7 +33,7 @@ export function MemoryViewer({ entries }: MemoryViewerProps) {
     <Card className="ds-memory-viewer">
       <header className="ds-memory-viewer__header">
         <div className="ds-memory-viewer__title-wrap">
-          <Icon icon={Brain} tone="primary" />
+          <Icon icon={Brain} tone="primary-strong" />
           <Text as="h3" size="base">Context Memory</Text>
         </div>
         <Text size="2xs" tone="faint" mono>{entries.length} injected</Text>

@@ -7,6 +7,7 @@ export type IconTone =
   | "soft"
   | "faint"
   | "primary"
+  | "primary-strong"
   | "info"
   | "processing"
   | "success"

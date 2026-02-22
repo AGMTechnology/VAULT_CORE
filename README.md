@@ -2,17 +2,6 @@
 
 VAULT_CORE is a dedicated repository for the control-plane architecture that orchestrates contracts, memory, skills, rules, docs, and execution governance across VAULT projects.
 
-## Mandatory docs
-
-Read and apply these files before implementation:
-- `docs/ai/VAULT_CORE_TECH_SPEC.md`
-- `docs/ai/adr/ADR-0001-vault-core-architecture.md`
-- `docs/ai/VAULT_CORE_STACK_MATRIX.md`
-- `docs/ai/VAULT_CORE_MIGRATION_ROADMAP.md`
-- `docs/ai/MEMORY_HUB_POLICY.md`
-- `docs/ai/contracts/vault-core-contract-v1.schema.json`
-- `docs/ai/ONBOARDING_CHECKLIST.md`
-
 ## Local commands
 
 - `npm test` runs bootstrap compliance tests.
@@ -20,9 +9,3 @@ Read and apply these files before implementation:
 - `npm run build` builds the Next app for production.
 - `npm run start` runs the built Next app on `http://127.0.0.1:3026`.
 - `npm run test:ui` runs UI/API web integration tests.
-
-## Workflow baseline
-
-- Assigned agent only can start execution.
-- Strict TDD (`red -> green`) is mandatory.
-- Push delivery lessons to the native VAULT_CORE Memory Hub after ticket completion.

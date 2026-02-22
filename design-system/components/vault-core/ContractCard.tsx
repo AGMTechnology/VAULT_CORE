@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { CheckCircle2, Circle, FileText, FlaskConical, Link2 } from "lucide-react";
+import { CheckCircle2, Circle, FileText, GitBranch, TestTube2 } from "lucide-react";
 import { Badge } from "../primitives/Badge";
 import { Button } from "../primitives/Button";
 import { Icon } from "../primitives/Icon";
@@ -57,7 +57,7 @@ export function ContractCard({
     <article className="ds-contract-card">
       <header className="ds-contract-card__header">
         <div className="ds-contract-card__title-wrap">
-          <Icon icon={FileText} tone="primary" />
+          <Icon icon={FileText} tone="primary-strong" />
           <div>
             <Text as="p" size="base" className="ds-contract-card__title">{title}</Text>
             <Text as="p" size="2xs" tone="faint" mono className="ds-contract-card__id">{contractId}</Text>
@@ -89,8 +89,8 @@ export function ContractCard({
 
       <footer className="ds-contract-card__footer">
         <div className="ds-contract-card__stats">
-          <span className="ds-contract-card__stat"><Icon icon={Link2} size="sm" tone="faint" />{dependenciesCount} deps</span>
-          <span className="ds-contract-card__stat"><Icon icon={FlaskConical} size="sm" tone={testsTotal > 0 && testsDone === testsTotal ? "success" : "soft"} />{testsDone}/{testsTotal} tests</span>
+          <span className="ds-contract-card__stat"><Icon icon={GitBranch} size="sm" tone="faint" />{dependenciesCount} deps</span>
+          <span className="ds-contract-card__stat"><Icon icon={TestTube2} size="sm" tone={testsTotal > 0 && testsDone === testsTotal ? "success" : "soft"} />{testsDone}/{testsTotal} tests</span>
         </div>
         {(onSelect || onMove) ? (
           <div className="ds-contract-card__actions">
