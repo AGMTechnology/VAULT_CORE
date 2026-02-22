@@ -1,11 +1,11 @@
 import { Card } from "../primitives/Card";
 import { Text } from "../primitives/Text";
-import { LogRow, type LogLevel } from "./LogRow";
+import { LogRow, type LogRowLevel } from "./LogRow";
 
 export type AuditEntry = {
   readonly id: string;
   readonly time: string;
-  readonly level: LogLevel;
+  readonly level: LogRowLevel;
   readonly message: string;
 };
 

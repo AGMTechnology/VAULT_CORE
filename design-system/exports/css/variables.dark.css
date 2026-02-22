@@ -5,15 +5,20 @@
   --ds-color-surface-3: #334155;
   --ds-color-surface-4: #3F4E63;
   --ds-color-text-default: #FFFFFF;
+  --ds-color-text-strong: #E2E8F0;
   --ds-color-text-muted: #E2E8F0;
   --ds-color-text-soft: #CBD5E1;
+  --ds-color-text-faint: #94A3B8;
   --ds-color-text-inverse: #020617;
   --ds-color-border-default: rgba(148, 163, 184, 0.20);
+  --ds-color-border-vault: rgba(148, 163, 184, 0.16);
   --ds-color-border-subtle: rgba(148, 163, 184, 0.12);
   --ds-color-border-strong: rgba(148, 163, 184, 0.32);
   --ds-color-primary: #799FD0;
   --ds-color-primary-strong: #A6BFE0;
   --ds-color-overlay-light: rgba(2, 6, 23, 0.35);
+  --ds-color-overlay-strong: rgba(2, 6, 23, 0.45);
+  --ds-color-overlay-hover: rgba(2, 6, 23, 0.42);
   --ds-color-overlay-medium: rgba(2, 6, 23, 0.55);
   --ds-color-overlay-heavy: rgba(2, 6, 23, 0.78);
 }

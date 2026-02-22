@@ -1,7 +1,17 @@
 import type { ElementType, HTMLAttributes } from "react";
 import { cn } from "./cn";
 
-export type TextTone = "default" | "muted" | "soft" | "inverse" | "primary" | "success" | "warning" | "error";
+export type TextTone =
+  | "default"
+  | "strong"
+  | "muted"
+  | "soft"
+  | "faint"
+  | "inverse"
+  | "primary"
+  | "success"
+  | "warning"
+  | "error";
 export type TextSize = "2xs" | "xs" | "sm" | "base" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
 
 export type TextProps = HTMLAttributes<HTMLElement> & {

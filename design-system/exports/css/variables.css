@@ -28,10 +28,13 @@
   --ds-color-surface-3: #E2E8F0;
   --ds-color-surface-4: #D5DDE8;
   --ds-color-text-default: #0F172A;
+  --ds-color-text-strong: #475569;
   --ds-color-text-muted: #64748B;
   --ds-color-text-soft: #94A3B8;
+  --ds-color-text-faint: #CBD5E1;
   --ds-color-text-inverse: #FFFFFF;
   --ds-color-border-default: rgba(13, 43, 107, 0.10);
+  --ds-color-border-vault: rgba(13, 43, 107, 0.08);
   --ds-color-border-subtle: rgba(13, 43, 107, 0.05);
   --ds-color-border-strong: rgba(13, 43, 107, 0.18);
   --ds-color-primary: #0D2B6B;
@@ -46,6 +49,8 @@
   --ds-color-info-dim: rgba(37, 99, 235, 0.08);
   --ds-color-processing: #2E8BC0;
   --ds-color-overlay-light: rgba(13, 43, 107, 0.03);
+  --ds-color-overlay-strong: rgba(13, 43, 107, 0.06);
+  --ds-color-overlay-hover: rgba(13, 43, 107, 0.02);
   --ds-color-overlay-medium: rgba(0, 0, 0, 0.30);
   --ds-color-overlay-heavy: rgba(0, 0, 0, 0.60);
 
@@ -82,12 +87,17 @@
   --ds-size-textarea-min: 112px;
   --ds-size-progress: 6px;
   --ds-size-progress-segment: 4px;
+  --ds-size-timeline-dot: 22px;
 
   --ds-layout-sidebar-width: 248px;
   --ds-layout-modal-max: 560px;
   --ds-layout-metric-min: 180px;
   --ds-layout-contract-min: 320px;
   --ds-layout-nav-min: 120px;
+  --ds-layout-agent-min: 240px;
+  --ds-layout-agent-max: 320px;
+  --ds-layout-log-max: 240px;
+  --ds-layout-memory-relevance-width: 48px;
   --ds-breakpoint-lg: 1024px;
 
   --ds-radius-sm: 4px;

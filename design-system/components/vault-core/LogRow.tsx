@@ -1,11 +1,11 @@
 import { Badge } from "../primitives/Badge";
 import { Text } from "../primitives/Text";
 
-export type LogLevel = "info" | "warn" | "error";
+export type LogRowLevel = "info" | "warn" | "error";
 
 export type LogRowProps = {
   readonly time: string;
-  readonly level: LogLevel;
+  readonly level: LogRowLevel;
   readonly message: string;
 };
 

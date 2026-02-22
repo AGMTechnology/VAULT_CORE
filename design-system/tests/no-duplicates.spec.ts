@@ -27,7 +27,7 @@ test("design-system components avoid hardcoded style literals", () => {
 
   const files = fs
     .readdirSync(COMPONENTS_DIR, { recursive: true })
-    .filter((entry) => typeof entry === "string" && entry.endsWith(".tsx"))
+    .filter((entry): entry is string => typeof entry === "string" && entry.endsWith(".tsx"))
     .map((entry) => path.join(COMPONENTS_DIR, entry));
 
   assert.ok(files.length > 0, "expected TSX components");

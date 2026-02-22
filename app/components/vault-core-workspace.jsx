@@ -4,19 +4,18 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { CheckCircle2, Circle, Eye, FileText, FlaskConical, Link2, Pause, Play, RotateCcw, XCircle } from "lucide-react";
 import {
   AgentCard,
-  AuditTrail,
   Badge,
   Button,
   Card,
   ContractCard,
-  ContractListItem,
   DataTable,
   EmptyState,
   ErrorState,
   GatePanel,
-  MemoryItem,
+  LogViewer,
+  MemoryViewer,
+  MetricCard,
   Modal,
-  RunListItem,
   Select,
   SidebarLayout,
   Stack,
@@ -150,6 +149,14 @@ function VaultSidebar({ activeHub, setActiveHub }) {
       <Text size="2xs" tone="soft" mono className="vc-sidebar-footer">Built for AI orchestration</Text>
     </div>
   );
+}
+
+function toAgentState(status) {
+  if (status === "active") return "active";
+  if (status === "processing") return "processing";
+  if (status === "error") return "error";
+  if (status === "complete") return "complete";
+  return "idle";
 }
 
 export function VaultCoreWorkspace() {
@@ -392,8 +399,63 @@ export function VaultCoreWorkspace() {
   }
 
   function renderDashboardHub() {
+    const metricRows = [
+      { label: "Active Contracts", value: String(dashboard?.metrics?.contracts ?? 0), trend: "up", change: 12 },
+      { label: "Quality Score", value: String(dashboard?.metrics?.qualityScore ?? "98.2"), unit: "%", trend: "up", change: 2.1 },
+      { label: "Agents Running", value: String(dashboard?.metrics?.activeAgents ?? 0), trend: "down", change: -1 },
+      { label: "Cycle Time", value: "4.2", unit: "min", trend: "up", change: -15 }
+    ];
+
+    const dashboardAgents = [
+      { id: "codegen", name: "CodeGen", role: "code_gen", state: "active", tasksCompleted: 8, totalTasks: 12, qualityScore: 97 },
+      { id: "qa", name: "QA Agent", role: "qa", state: "processing", tasksCompleted: 3, totalTasks: 5, qualityScore: 100 },
+      { id: "architect", name: "Architect", role: "design", state: "complete", tasksCompleted: 4, totalTasks: 4, qualityScore: 96 }
+    ];
+
+    const dashboardGates = [
+      { id: "docs", label: "Docs Review", type: "documentation", status: "passed" },
+      { id: "tdd", label: "TDD", type: "tdd", status: "passed" },
+      { id: "evidence", label: "Evidence", type: "evidence", status: "review" },
+      { id: "review", label: "Code Review", type: "review", status: "pending" }
+    ];
+
     return (
       <Stack gap="4">
+        <div className="vc-dashboard-metrics-grid">
+          {metricRows.map((metric) => (
+            <MetricCard
+              key={metric.label}
+              label={metric.label}
+              value={metric.value}
+              unit={metric.unit}
+              trend={metric.trend}
+              change={metric.change}
+            />
+          ))}
+        </div>
+
+        <div className="vc-dashboard-lower-grid">
+          <Card className="vc-dashboard-panel">
+            <header className="vc-dashboard-panel-head">
+              <Text as="h3" size="base">Active Agents</Text>
+            </header>
+            <div className="vc-agent-card-grid">
+              {dashboardAgents.map((agent) => (
+                <AgentCard
+                  key={agent.id}
+                  name={agent.name}
+                  role={agent.role}
+                  state={agent.state}
+                  tasksCompleted={agent.tasksCompleted}
+                  totalTasks={agent.totalTasks}
+                  qualityScore={agent.qualityScore}
+                />
+              ))}
+            </div>
+          </Card>
+          <GatePanel title="Quality Gates" gates={dashboardGates} />
+        </div>
+
         <Card className="vc-feature-block">
           <Text as="h2" size="xl">Agent Control Buttons</Text>
           <Text size="sm" tone="muted">Interactive controls for agent lifecycle management.</Text>
@@ -406,20 +468,14 @@ export function VaultCoreWorkspace() {
           </div>
         </Card>
 
-        <Card className="vc-feature-block">
-          <Text as="h2" size="xl">Icon Specifications</Text>
-          <div className="vc-metrics-grid">
-            {ICON_SPECIFICATIONS.map(([label, value]) => (
-              <Card key={label} muted>
-                <Text size="2xs" tone="soft" uppercase>{label}</Text>
-                <Text size="sm">{value}</Text>
-              </Card>
-            ))}
-          </div>
-        </Card>
-
         <div className="vc-metrics-grid">
-          {dashboardCards.map(([label, value]) => (
+          {ICON_SPECIFICATIONS.map(([label, value]) => (
+            <Card key={label} muted>
+              <Text size="2xs" tone="soft" uppercase>{label}</Text>
+              <Text size="sm">{value}</Text>
+            </Card>
+          ))}
+          {dashboardCards.slice(0, 2).map(([label, value]) => (
             <Card key={label}>
               <Text size="2xs" tone="soft" uppercase>{label}</Text>
               <Text as="h3" size="2xl">{String(value)}</Text>
@@ -477,10 +533,11 @@ export function VaultCoreWorkspace() {
   function renderExecutionHub() {
     const selectedContract = contracts.find((contract) => contract.meta?.contractId === selectedContractId);
     const timelineItems = [
-      { id: "work-framing", title: "Work Framing", subtitle: "Contract initialized", meta: "orchestrator", state: "validated" },
-      { id: "context-injection", title: "Context Injection", subtitle: "Memory and rules attached", meta: "memory + rules", state: "validated" },
-      { id: "execution", title: "Execution", subtitle: selectedContract ? `Running ${selectedContract.scope?.title || selectedContractId}` : "Awaiting contract", meta: "agent", state: selectedContract ? "running" : "pending" },
-      { id: "quality-gates", title: "Quality Gates", subtitle: "Validation after run", meta: "policy", state: "pending" }
+      { id: "work-framing", title: "Work Framing", subtitle: "Contract initialized", timestamp: "14:32:07", agent: "Architect", state: "validated" },
+      { id: "context-injection", title: "Context Injection", subtitle: "4 lessons retrieved", timestamp: "14:32:12", agent: "Memory", state: "validated" },
+      { id: "execution", title: "Execution", subtitle: selectedContract ? `Running ${selectedContract.scope?.title || selectedContractId}` : "Awaiting contract", timestamp: "14:32:18", agent: "CodeGen", state: selectedContract ? "running" : "pending" },
+      { id: "quality-gates", title: "Quality Gates", subtitle: "Awaiting completion", meta: "pending", state: "pending" },
+      { id: "post-mortem", title: "Post-Mortem", subtitle: "Lessons capture", meta: "pending", state: "pending" }
     ];
     return (
       <Stack gap="4">
@@ -498,17 +555,20 @@ export function VaultCoreWorkspace() {
         <div className="vc-two-cols">
           <Timeline items={timelineItems} />
           <Stack gap="3">
-            <RunListItem
-              runId={executionPackage?.packageId || "no-package"}
-              label={executionPackage?.contract?.scope?.title || "Execution package"}
-              state={executionPackage ? "running" : "pending"}
+            <AgentCard
+              name="CodeGen"
+              role="code_generation"
+              state={executionPackage ? "active" : "idle"}
+              tasksCompleted={8}
+              totalTasks={12}
+              qualityScore={97}
             />
-            <AuditTrail
+            <LogViewer
               title="Live Trace"
-              entries={[
-                { id: "trace-1", time: "14:32:18", level: "info", message: "[codegen] Compiling API module..." },
-                { id: "trace-2", time: "14:32:19", level: "info", message: "[codegen] Tests: 8/12 passing" },
-                { id: "trace-3", time: "14:32:20", level: "warn", message: "[codegen] Rate limit approaching" }
+              logs={[
+                { id: "trace-1", timestamp: "14:32:18", level: "info", source: "codegen", message: "Compiling API module..." },
+                { id: "trace-2", timestamp: "14:32:19", level: "info", source: "codegen", message: "Tests: 8/12 passing" },
+                { id: "trace-3", timestamp: "14:32:20", level: "warn", source: "codegen", message: "Rate limit approaching" }
               ]}
             />
           </Stack>
@@ -518,6 +578,15 @@ export function VaultCoreWorkspace() {
   }
 
   function renderMemoryHub() {
+    const entries = memoryEntries.slice(0, 20).map((entry, index) => ({
+      id: entry.id,
+      type: entry.lessonCategory === "success" ? "lesson" : entry.lessonCategory === "decision" ? "rule" : "context",
+      title: entry.content || "No content",
+      source: (entry.sourceRefs && entry.sourceRefs[0]) || "vault-core",
+      timestamp: entry.createdAt || `${index + 1}h ago`,
+      relevance: 90 - (index * 3)
+    }));
+
     return (
       <Stack gap="4">
         <Card className="vc-feature-head">
@@ -527,17 +596,11 @@ export function VaultCoreWorkspace() {
           </div>
           <Button tone="primary" onClick={appendMemory}>Append memory</Button>
         </Card>
-        <Stack gap="3">
-          {memoryEntries.slice(0, 20).map((entry) => (
-            <MemoryItem
-              key={entry.id}
-              category={entry.lessonCategory || "info"}
-              content={entry.content || "No content"}
-              meta={entry.id}
-            />
-          ))}
-          {memoryEntries.length === 0 ? <EmptyState title="No memory entries" description="Append one to seed the hub." /> : null}
-        </Stack>
+        {entries.length > 0 ? (
+          <MemoryViewer entries={entries} />
+        ) : (
+          <EmptyState title="No memory entries" description="Append one to seed the hub." />
+        )}
       </Stack>
     );
   }
@@ -552,14 +615,16 @@ export function VaultCoreWorkspace() {
           </div>
           <Button tone="primary" onClick={saveAgent}>Save agent</Button>
         </Card>
-        <div className="vc-metrics-grid">
+        <div className="vc-agent-grid">
           {agents.map((agent) => (
             <AgentCard
               key={agent.agentId}
               name={agent.displayName}
-              subtitle={agent.role}
-              status={agent.status}
-              tone={agent.status === "active" ? "primary" : "neutral"}
+              role={agent.role}
+              state={toAgentState(agent.status)}
+              tasksCompleted={0}
+              totalTasks={Math.max(1, agent.maxActiveContracts || 1)}
+              qualityScore={96}
             />
           ))}
           {agents.length === 0 ? <EmptyState title="No agent profiles" description="Save one to initialize the hub." /> : null}
@@ -595,6 +660,13 @@ export function VaultCoreWorkspace() {
     const gateItems = rules.map((rule) => ({
       id: rule.ruleId,
       label: rule.description || rule.ruleId,
+      type: rule.ruleId.includes("docs")
+        ? "documentation"
+        : rule.ruleId.includes("tdd")
+          ? "tdd"
+          : rule.ruleId.includes("review")
+            ? "review"
+            : "evidence",
       status: rule.severity === "blocker" || rule.severity === "error"
         ? "failed"
         : rule.severity === "warning"

@@ -1,7 +1,17 @@
 import type { LucideIcon } from "lucide-react";
 import { cn } from "./cn";
 
-export type IconTone = "default" | "muted" | "primary" | "success" | "warning" | "error";
+export type IconTone =
+  | "default"
+  | "muted"
+  | "soft"
+  | "faint"
+  | "primary"
+  | "info"
+  | "processing"
+  | "success"
+  | "warning"
+  | "error";
 export type IconSize = "sm" | "md" | "lg";
 
 export type IconProps = {
