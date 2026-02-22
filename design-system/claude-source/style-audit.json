@@ -1,0 +1,3057 @@
+{
+  "generatedAt": "2026-02-22T00:27:05.020Z",
+  "sourceRoot": "Design System for VAULT_CORE",
+  "colors": [
+    {
+      "value": "#94A3B8",
+      "count": 91,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#0D2B6B",
+      "count": 61,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#0F172A",
+      "count": 52,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#64748B",
+      "count": 45,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#475569",
+      "count": 41,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.08)",
+      "count": 41,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#10B981",
+      "count": 38,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#CBD5E1",
+      "count": 38,
+      "files": [
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#FFFFFF",
+      "count": 29,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#C41E3A",
+      "count": 27,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#F59E0B",
+      "count": 24,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#F8FAFC",
+      "count": 21,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#F1F5F9",
+      "count": 18,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.05)",
+      "count": 16,
+      "files": [
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.06)",
+      "count": 16,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "#1E5FAB",
+      "count": 15,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#E2E8F0",
+      "count": 14,
+      "files": [
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(13,43,107,0.08)",
+      "count": 12,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(16,185,129,0.10)",
+      "count": 11,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#2563EB",
+      "count": 10,
+      "files": [
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#8B1228",
+      "count": 8,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#9DC3DE",
+      "count": 8,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#C49BA3",
+      "count": 8,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.10)",
+      "count": 8,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(16, 185, 129, 0.10)",
+      "count": 8,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(196, 30, 58, 0.08)",
+      "count": 8,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#D5DDE8",
+      "count": 7,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.12)",
+      "count": 7,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(245, 158, 11, 0.10)",
+      "count": 7,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(245,158,11,0.10)",
+      "count": 7,
+      "files": [
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#EBF0F8",
+      "count": 6,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(13,43,107,0.06)",
+      "count": 6,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(196,30,58,0.08)",
+      "count": 6,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#020617",
+      "count": 5,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#123B71",
+      "count": 5,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#2E8BC0",
+      "count": 5,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#334155",
+      "count": 5,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#4D7FC1",
+      "count": 5,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#A6BFE0",
+      "count": 5,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#D2DFEF",
+      "count": 5,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(148, 163, 184, 0.15)",
+      "count": 5,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#091D4A",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#184D8E",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#1E293B",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#799FD0",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.18)",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#050F29",
+      "count": 3,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#3F4E63",
+      "count": 3,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "#ccc",
+      "count": 3,
+      "files": [
+        "src/app/components/ui/chart.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.03)",
+      "count": 3,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.15)",
+      "count": 3,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(148,163,184,0.15)",
+      "count": 3,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx"
+      ]
+    },
+    {
+      "value": "rgba(16,185,129,0.3)",
+      "count": 3,
+      "files": [
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(37, 99, 235, 0.08)",
+      "count": 3,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(37,99,235,0.08)",
+      "count": 3,
+      "files": [
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "#fff",
+      "count": 2,
+      "files": [
+        "src/app/components/ui/chart.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.04)",
+      "count": 2,
+      "files": [
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.20)",
+      "count": 2,
+      "files": [
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13,43,107,0.05)",
+      "count": 2,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13,43,107,0.18)",
+      "count": 2,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(46,139,192,0.10)",
+      "count": 2,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx"
+      ]
+    },
+    {
+      "value": "#FFF",
+      "count": 1,
+      "files": [
+        "src/app/pages/DashboardPage.tsx"
+      ]
+    },
+    {
+      "value": "hsl(var(--sidebar-accent)",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "hsl(var(--sidebar-border)",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rgba(0, 0, 0, 0.3)",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "rgba(0, 0, 0, 0.6)",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "rgba(0,0,0,0.3)",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(0,0,0,0.6)",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13, 43, 107, 0.22)",
+      "count": 1,
+      "files": [
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rgba(13,43,107,0.02)",
+      "count": 1,
+      "files": [
+        "src/app/components/vault/LogViewer.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13,43,107,0.03)",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13,43,107,0.04)",
+      "count": 1,
+      "files": [
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13,43,107,0.10)",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(13,43,107,0.20)",
+      "count": 1,
+      "files": [
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(148,163,184,0.12)",
+      "count": 1,
+      "files": [
+        "src/app/components/vault/QualityGate.tsx"
+      ]
+    },
+    {
+      "value": "rgba(16, 185, 129, 0.15)",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "rgba(16,185,129,0.05)",
+      "count": 1,
+      "files": [
+        "src/app/pages/ScreensPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(16,185,129,0.08)",
+      "count": 1,
+      "files": [
+        "src/app/pages/InteractionsPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(196, 30, 58, 0.15)",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "rgba(203, 213, 225, 0.20)",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rgba(203,213,225,0.20)",
+      "count": 1,
+      "files": [
+        "src/app/components/vault/QualityGate.tsx"
+      ]
+    },
+    {
+      "value": "rgba(245, 158, 11, 0.15)",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "rgba(46, 139, 192, 0.10)",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    }
+  ],
+  "lengths": [
+    {
+      "value": "0.625rem",
+      "count": 57,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "0.75rem",
+      "count": 49,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "0.6875rem",
+      "count": 46,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "0.8125rem",
+      "count": 45,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "1px",
+      "count": 19,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx",
+        "src/app/components/ui/tabs.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/MotionPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "3px",
+      "count": 18,
+      "files": [
+        "src/app/components/ui/accordion.tsx",
+        "src/app/components/ui/badge.tsx",
+        "src/app/components/ui/button.tsx",
+        "src/app/components/ui/checkbox.tsx",
+        "src/app/components/ui/input-otp.tsx",
+        "src/app/components/ui/input.tsx",
+        "src/app/components/ui/navigation-menu.tsx",
+        "src/app/components/ui/radio-group.tsx",
+        "src/app/components/ui/scroll-area.tsx",
+        "src/app/components/ui/select.tsx",
+        "src/app/components/ui/switch.tsx",
+        "src/app/components/ui/tabs.tsx",
+        "src/app/components/ui/textarea.tsx",
+        "src/app/components/ui/toggle.tsx",
+        "src/app/pages/TokensPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "0.08em",
+      "count": 16,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/ScreensPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "2px",
+      "count": 15,
+      "files": [
+        "src/app/components/ui/chart.tsx",
+        "src/app/components/ui/sidebar.tsx",
+        "src/app/components/ui/switch.tsx",
+        "src/app/components/ui/table.tsx",
+        "src/app/components/ui/tooltip.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "16px",
+      "count": 12,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "0.5625rem",
+      "count": 11,
+      "files": [
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/IconsPage.tsx",
+        "src/app/pages/ScreensPage.tsx"
+      ]
+    },
+    {
+      "value": "4px",
+      "count": 11,
+      "files": [
+        "src/app/components/ui/checkbox.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "1.125rem",
+      "count": 9,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "80px",
+      "count": 9,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "20px",
+      "count": 8,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "24px",
+      "count": 8,
+      "files": [
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "8px",
+      "count": 8,
+      "files": [
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "0.1em",
+      "count": 7,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "1.5rem",
+      "count": 7,
+      "files": [
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "12px",
+      "count": 7,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "240px",
+      "count": 7,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ComponentsPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "40px",
+      "count": 7,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "8rem",
+      "count": 7,
+      "files": [
+        "src/app/components/ui/chart.tsx",
+        "src/app/components/ui/context-menu.tsx",
+        "src/app/components/ui/dropdown-menu.tsx",
+        "src/app/components/ui/menubar.tsx",
+        "src/app/components/ui/select.tsx"
+      ]
+    },
+    {
+      "value": "0.025em",
+      "count": 6,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "0.02em",
+      "count": 6,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "0.03em",
+      "count": 6,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/vault/MetricCard.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "60px",
+      "count": 6,
+      "files": [
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "6px",
+      "count": 6,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "0.875rem",
+      "count": 5,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "0.01em",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "0.05em",
+      "count": 4,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/DashboardPage.tsx"
+      ]
+    },
+    {
+      "value": "1.875rem",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "14px",
+      "count": 4,
+      "files": [
+        "guidelines/Guidelines.md",
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "1rem",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "32px",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "360px",
+      "count": 4,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/InteractionsPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "0px",
+      "count": 3,
+      "files": [
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "1.25rem",
+      "count": 3,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "10px",
+      "count": 3,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "2.25rem",
+      "count": 3,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "48px",
+      "count": 3,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "56px",
+      "count": 3,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/ComponentsPage.tsx"
+      ]
+    },
+    {
+      "value": "0.015em",
+      "count": 2,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "0.5rem",
+      "count": 2,
+      "files": [
+        "src/app/pages/SpacingPage.tsx",
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "1.75px",
+      "count": 2,
+      "files": [
+        "src/app/pages/IconsPage.tsx"
+      ]
+    },
+    {
+      "value": "11px",
+      "count": 2,
+      "files": [
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "128px",
+      "count": 2,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "140px",
+      "count": 2,
+      "files": [
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "22px",
+      "count": 2,
+      "files": [
+        "src/app/components/vault/WorkflowTimeline.tsx"
+      ]
+    },
+    {
+      "value": "2rem",
+      "count": 2,
+      "files": [
+        "src/app/components/ui/alert-dialog.tsx",
+        "src/app/components/ui/dialog.tsx"
+      ]
+    },
+    {
+      "value": "640px",
+      "count": 2,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/DashboardPage.tsx"
+      ]
+    },
+    {
+      "value": "64px",
+      "count": 2,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "96px",
+      "count": 2,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "9999px",
+      "count": 2,
+      "files": [
+        "src/app/lib/tokens.ts",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "0.8rem",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/calendar.tsx"
+      ]
+    },
+    {
+      "value": "1.15rem",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/switch.tsx"
+      ]
+    },
+    {
+      "value": "1.5px",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/chart.tsx"
+      ]
+    },
+    {
+      "value": "100px",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/drawer.tsx"
+      ]
+    },
+    {
+      "value": "1024px",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "1200px",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "1280px",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "12rem",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/menubar.tsx"
+      ]
+    },
+    {
+      "value": "13px",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "1400px",
+      "count": 1,
+      "files": [
+        "src/app/components/layout/AppLayout.tsx"
+      ]
+    },
+    {
+      "value": "150px",
+      "count": 1,
+      "files": [
+        "src/app/pages/AccessibilityPage.tsx"
+      ]
+    },
+    {
+      "value": "1536px",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "160px",
+      "count": 1,
+      "files": [
+        "src/app/pages/IconsPage.tsx"
+      ]
+    },
+    {
+      "value": "16rem",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "18px",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "18rem",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "200px",
+      "count": 1,
+      "files": [
+        "src/app/pages/DashboardPage.tsx"
+      ]
+    },
+    {
+      "value": "300px",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/command.tsx"
+      ]
+    },
+    {
+      "value": "30px",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "36px",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "3rem",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "50%",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/tooltip.tsx"
+      ]
+    },
+    {
+      "value": "500px",
+      "count": 1,
+      "files": [
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "600px",
+      "count": 1,
+      "files": [
+        "src/app/components/layout/Section.tsx"
+      ]
+    },
+    {
+      "value": "768px",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    }
+  ],
+  "radii": [
+    {
+      "value": "rounded-full\"",
+      "count": 7,
+      "files": [
+        "src/app/components/ui/scroll-area.tsx",
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border overflow-hidden\"",
+      "count": 6,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/vault/ContractCard.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/MemoryViewer.tsx",
+        "src/app/components/vault/QualityGate.tsx",
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full\",",
+      "count": 5,
+      "files": [
+        "src/app/components/ui/avatar.tsx",
+        "src/app/components/ui/carousel.tsx",
+        "src/app/components/ui/progress.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xl border overflow-hidden\" style={{ borderColor: 'rgba(13, 43, 107, 0.08)' ",
+      "count": 5,
+      "files": [
+        "src/app/pages/ScreensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded\"",
+      "count": 5,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/LogViewer.tsx",
+        "src/app/components/vault/WorkflowTimeline.tsx",
+        "src/app/pages/ColorsPage.tsx",
+        "src/app/pages/ScreensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border overflow-hidden\" style={{ borderColor: 'rgba(13, 43, 107, 0.08)' ",
+      "count": 4,
+      "files": [
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/SpacingPage.tsx",
+        "src/app/pages/TypographyPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 4,
+      "files": [
+        "src/app/components/ui/context-menu.tsx",
+        "src/app/components/ui/dropdown-menu.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg flex items-center justify-center\"",
+      "count": 3,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx",
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/pages/IconsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border p-1 shadow-lg\",",
+      "count": 3,
+      "files": [
+        "src/app/components/ui/context-menu.tsx",
+        "src/app/components/ui/dropdown-menu.tsx",
+        "src/app/components/ui/menubar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border p-1 shadow-md\",",
+      "count": 3,
+      "files": [
+        "src/app/components/ui/context-menu.tsx",
+        "src/app/components/ui/dropdown-menu.tsx",
+        "src/app/components/ui/menubar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md\"",
+      "count": 3,
+      "files": [
+        "src/app/components/layout/Section.tsx",
+        "src/app/components/ui/sidebar.tsx",
+        "src/app/pages/ScreensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md\",",
+      "count": 3,
+      "files": [
+        "src/app/components/ui/button.tsx",
+        "src/app/components/ui/calendar.tsx",
+        "src/app/components/ui/command.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 3,
+      "files": [
+        "src/app/components/ui/context-menu.tsx",
+        "src/app/components/ui/dropdown-menu.tsx",
+        "src/app/components/ui/menubar.tsx"
+      ]
+    },
+    {
+      "value": "rounded\" style={{ background: 'var(--vc-surface-1)', border: '1px solid rgba(13, 43, 107, 0.06)' ",
+      "count": 3,
+      "files": [
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded flex items-center justify-center\"",
+      "count": 2,
+      "files": [
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full\" style={{ background: 'rgba(13,43,107,0.06)' ",
+      "count": 2,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx",
+        "src/app/components/vault/MemoryViewer.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border mb-2 flex items-end p-3\"",
+      "count": 2,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg\",",
+      "count": 2,
+      "files": [
+        "src/app/components/ui/alert-dialog.tsx",
+        "src/app/components/ui/dialog.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border\"",
+      "count": 2,
+      "files": [
+        "src/app/pages/AccessibilityPage.tsx",
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg transition-all duration-200\"",
+      "count": 2,
+      "files": [
+        "src/app/pages/DashboardPage.tsx",
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border p-4 shadow-md outline-hidden\",",
+      "count": 2,
+      "files": [
+        "src/app/components/ui/hover-card.tsx",
+        "src/app/components/ui/popover.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md p-0 outline-hidden transition-transform focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0\",",
+      "count": 2,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xs py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 2,
+      "files": [
+        "src/app/components/ui/menubar.tsx"
+      ]
+    },
+    {
+      "value": "border-radius: 3px",
+      "count": 1,
+      "files": [
+        "src/styles/theme.css"
+      ]
+    },
+    {
+      "value": "rounded border transition-colors duration-150\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded border\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/AccessibilityPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded border\" style={{ background: pair.bg, borderColor: 'rgba(13, 43, 107, 0.12)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/AccessibilityPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded border\" style={{ background: pair.fg, borderColor: 'rgba(13, 43, 107, 0.12)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/AccessibilityPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded flex items-center justify-center flex-shrink-0 mt-0.5\" style={{ background: 'rgba(16,185,129,0.08)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/InteractionsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded mb-1\" style={{ background: 'rgba(13, 43, 107, 0.12)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded mb-2\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded mb-4\" style={{ background: 'rgba(13, 43, 107, 0.05)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded mb-4\" style={{ background: 'rgba(13, 43, 107, 0.15)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded mt-0.5\"",
+      "count": 1,
+      "files": [
+        "src/app/components/vault/MemoryViewer.tsx"
+      ]
+    },
+    {
+      "value": "rounded relative overflow-hidden\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded text-center\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/AccessibilityPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded vc-animate-pulse\" style={{ background: 'rgba(13,43,107,0.06)', width: '45%' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded vc-animate-pulse\" style={{ background: 'rgba(13,43,107,0.06)', width: '55%' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded vc-animate-pulse\" style={{ background: 'rgba(13,43,107,0.06)', width: '70%' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-[2px] border-(--color-border) bg-(--color-bg)\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/chart.tsx"
+      ]
+    },
+    {
+      "value": "rounded-[2px]\"",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/chart.tsx"
+      ]
+    },
+    {
+      "value": "rounded-[2px]\" />",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/tooltip.tsx"
+      ]
+    },
+    {
+      "value": "rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/checkbox.tsx"
+      ]
+    },
+    {
+      "value": "rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1\"",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/scroll-area.tsx"
+      ]
+    },
+    {
+      "value": "rounded-b-lg data-[vaul-drawer-direction=top]:border-b\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/drawer.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full border border-transparent transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/switch.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50\"",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/slider.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full border shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/radio-group.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full data-[orientation=horizontal]:h-4 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/slider.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full flex items-center justify-center transition-all duration-300 ${isCurrent ? 'vc-animate-pulse' : ''",
+      "count": 1,
+      "files": [
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full flex items-center justify-center\"",
+      "count": 1,
+      "files": [
+        "src/app/components/vault/WorkflowTimeline.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full group-data-[vaul-drawer-direction=bottom]/drawer-content:block\" />",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/drawer.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full overflow-hidden\" style={{ background: 'rgba(13, 43, 107, 0.06)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full overflow-hidden\" style={{ background: 'rgba(13,43,107,0.06)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/MotionPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/switch.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full transition-all duration-500\"",
+      "count": 1,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx"
+      ]
+    },
+    {
+      "value": "rounded-full\" style={{ background: color ",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-l-md first:border-l last:rounded-r-md data-[active=true]:z-10 data-[active=true]:ring-[3px]\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/input-otp.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border mb-2`",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border p-3\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/ComponentsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border p-3\" style={{ background: 'var(--vc-surface-1)', borderColor: 'rgba(13, 43, 107, 0.08)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/ScreensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border p-4 transition-all duration-200\"",
+      "count": 1,
+      "files": [
+        "src/app/components/vault/AgentCard.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border p-4\"",
+      "count": 1,
+      "files": [
+        "src/app/components/vault/MetricCard.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border p-5 ${className",
+      "count": 1,
+      "files": [
+        "src/app/components/layout/Section.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border px-2.5 py-1.5 text-xs shadow-xl\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/chart.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/alert.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border transition-all duration-150 group\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/DashboardPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border transition-all duration-150\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/InteractionsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg border transition-all duration-200\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/DashboardPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/DashboardPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg flex items-center justify-center mb-4 mx-auto\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/ScreensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm\"",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg overflow-hidden border\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg p-4\">",
+      "count": 1,
+      "files": [
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/ScreensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg\" style={{ background: 'var(--vc-surface-2)' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg\" style={{ background: dim ",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-lg\" style={{ background: s.color ",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/command.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border bg-input-background px-3 py-2 text-base transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/textarea.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border bg-input-background px-3 py-2 text-sm whitespace-nowrap transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/select.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border p-1 shadow-xs\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/menubar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/badge.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border px-3 py-1 text-base bg-input-background transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/input.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border shadow md:w-[var(--radix-navigation-menu-viewport-width)]\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md border shadow-md\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/select.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md data-[variant=outline]:shadow-xs\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/toggle-group.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md flex items-center justify-center mx-auto mb-1\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/ScreensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md gap-1.5 px-3 has-[>svg]:px-2.5\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/button.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md group-data-[viewport=false]/navigation-menu:border group-data-[viewport=false]/navigation-menu:shadow group-data-[viewport=false]/navigation-menu:duration-200 **:data-[slot=navigation-menu-link]:focus:ring-0 **:data-[slot=navigation-menu-link]:focus:outline-none\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md mb-2\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/ComponentsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md p-2 text-left text-sm outline-hidden ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md px-1 text-xs font-medium tabular-nums select-none\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md px-2 outline-hidden focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md px-2 text-xs font-medium outline-hidden transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md px-2\", className)",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md px-3 py-1.5 text-xs text-balance\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/tooltip.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md px-3 py-2\" style={{ background: s.dim ",
+      "count": 1,
+      "files": [
+        "src/app/pages/ColorsPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md px-6 has-[>svg]:px-4\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/button.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/accordion.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md text-sm font-medium hover:bg-muted hover:text-muted-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none transition-[color,box-shadow] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive whitespace-nowrap\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/toggle.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/button.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md transition-all duration-150\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md transition-colors duration-150\"",
+      "count": 1,
+      "files": [
+        "src/app/components/layout/Sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md w-8 font-normal text-[0.8rem]\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/calendar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-md\", className)",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/skeleton.tsx"
+      ]
+    },
+    {
+      "value": "rounded-none shadow-none first:rounded-l-md last:rounded-r-md focus:z-10 focus-visible:z-10 data-[variant=outline]:border-l-0 data-[variant=outline]:first:border-l\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/toggle-group.tsx"
+      ]
+    },
+    {
+      "value": "rounded-r-md [&:has(>.day-range-start)]:rounded-l-md first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md\"",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/calendar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-r-md\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/calendar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm px-2 py-1 text-sm font-medium outline-hidden select-none\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/menubar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/command.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/context-menu.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/dropdown-menu.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm px-2 py-1.5 text-sm outline-none select-none data-[inset]:pl-8\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/menubar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/select.tsx"
+      ]
+    },
+    {
+      "value": "rounded-sm\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/SpacingPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-t-lg data-[vaul-drawer-direction=bottom]:border-t\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/drawer.tsx"
+      ]
+    },
+    {
+      "value": "rounded-tl-sm shadow-md\" />",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xl border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/tabs.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xl border\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/card.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xl flex items-center justify-center\"",
+      "count": 1,
+      "files": [
+        "src/app/pages/DashboardPage.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xl p-[3px] flex\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/tabs.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xs border\">",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/resizable.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\">",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/dialog.tsx"
+      ]
+    },
+    {
+      "value": "rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none\">",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sheet.tsx"
+      ]
+    },
+    {
+      "value": "rounded\" style={{ background: config.dim ",
+      "count": 1,
+      "files": [
+        "src/app/components/vault/QualityGate.tsx"
+      ]
+    },
+    {
+      "value": "rounded\" style={{ fontSize: '0.75rem', color: '#475569' ",
+      "count": 1,
+      "files": [
+        "src/app/pages/ComponentsPage.tsx"
+      ]
+    }
+  ],
+  "shadows": [
+    {
+      "value": "shadow-md\",",
+      "count": 4,
+      "files": [
+        "src/app/components/ui/context-menu.tsx",
+        "src/app/components/ui/dropdown-menu.tsx",
+        "src/app/components/ui/menubar.tsx",
+        "src/app/components/ui/select.tsx"
+      ]
+    },
+    {
+      "value": "shadow-lg\",",
+      "count": 3,
+      "files": [
+        "src/app/components/ui/context-menu.tsx",
+        "src/app/components/ui/dropdown-menu.tsx",
+        "src/app/components/ui/menubar.tsx"
+      ]
+    },
+    {
+      "value": "shadow-lg duration-200 sm:max-w-lg\",",
+      "count": 2,
+      "files": [
+        "src/app/components/ui/alert-dialog.tsx",
+        "src/app/components/ui/dialog.tsx"
+      ]
+    },
+    {
+      "value": "shadow-md outline-hidden\",",
+      "count": 2,
+      "files": [
+        "src/app/components/ui/hover-card.tsx",
+        "src/app/components/ui/popover.tsx"
+      ]
+    },
+    {
+      "value": "shadow-xs\",",
+      "count": 2,
+      "files": [
+        "src/app/components/ui/menubar.tsx",
+        "src/app/components/ui/toggle-group.tsx"
+      ]
+    },
+    {
+      "value": "box-shadow] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive whitespace-nowrap\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/toggle.tsx"
+      ]
+    },
+    {
+      "value": "box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/tabs.tsx"
+      ]
+    },
+    {
+      "value": "box-shadow] focus-visible:ring-[3px] focus-visible:outline-1\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx"
+      ]
+    },
+    {
+      "value": "box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/input.tsx"
+      ]
+    },
+    {
+      "value": "box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/select.tsx"
+      ]
+    },
+    {
+      "value": "box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/textarea.tsx"
+      ]
+    },
+    {
+      "value": "box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1\"",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/scroll-area.tsx"
+      ]
+    },
+    {
+      "value": "box-shadow] overflow-hidden\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/badge.tsx"
+      ]
+    },
+    {
+      "value": "shadow group-data-[viewport=false]/navigation-menu:duration-200 **:data-[slot=navigation-menu-link]:focus:ring-0 **:data-[slot=navigation-menu-link]:focus:outline-none\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx"
+      ]
+    },
+    {
+      "value": "shadow md:w-[var(--radix-navigation-menu-viewport-width)]\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx"
+      ]
+    },
+    {
+      "value": "SHADOW TOKENS ─────────────────────────────────────────────",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sheet.tsx"
+      ]
+    },
+    {
+      "value": "shadow-md\" />",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/navigation-menu.tsx"
+      ]
+    },
+    {
+      "value": "shadow-none first:rounded-l-md last:rounded-r-md focus:z-10 focus-visible:z-10 data-[variant=outline]:border-l-0 data-[variant=outline]:first:border-l\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/toggle-group.tsx"
+      ]
+    },
+    {
+      "value": "shadow-none\", className)",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50\"",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/slider.tsx"
+      ]
+    },
+    {
+      "value": "shadow-sm\"",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/sidebar.tsx"
+      ]
+    },
+    {
+      "value": "shadow-xl\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/chart.tsx"
+      ]
+    },
+    {
+      "value": "shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/radio-group.tsx"
+      ]
+    },
+    {
+      "value": "shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\",",
+      "count": 1,
+      "files": [
+        "src/app/components/ui/checkbox.tsx"
+      ]
+    },
+    {
+      "value": "Shadow: activeTab === tab.id ? '0 1px 3px rgba(13,43,107,0.08)' : 'none',",
+      "count": 1,
+      "files": [
+        "src/app/pages/TokensPage.tsx"
+      ]
+    },
+    {
+      "value": "shadows = {",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    },
+    {
+      "value": "shadows,",
+      "count": 1,
+      "files": [
+        "src/app/lib/tokens.ts"
+      ]
+    }
+  ],
+  "typography": {
+    "fontSizes": [
+      {
+        "value": "font-size: 0.8125rem",
+        "count": 2,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "font-size: 0.875rem",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "font-size: 1.125rem",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "font-size: 1.5rem",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "font-size: 1.875rem",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "font-size: 14px",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "font-size: 1rem",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "font-size: var(--font-size)",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      }
+    ],
+    "fontWeights": [
+      {
+        "value": "font-weight: 500",
+        "count": 4,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "font-weight: 600",
+        "count": 2,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "font-weight: 400",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      }
+    ],
+    "lineHeights": [
+      {
+        "value": "line-height: 1.5",
+        "count": 4,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "line-height: 1.3",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "line-height: 1.35",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "line-height: 1.4",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      }
+    ],
+    "letterSpacings": [
+      {
+        "value": "letter-spacing: -0.01em",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "letter-spacing: -0.025em",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "letter-spacing: -0.02em",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      }
+    ]
+  },
+  "zIndex": [],
+  "motion": {
+    "durations": [
+      {
+        "value": "200ms",
+        "count": 4,
+        "files": [
+          "src/app/lib/tokens.ts",
+          "src/app/pages/MotionPage.tsx"
+        ]
+      },
+      {
+        "value": "500ms",
+        "count": 3,
+        "files": [
+          "src/app/lib/tokens.ts",
+          "src/app/pages/MotionPage.tsx"
+        ]
+      },
+      {
+        "value": "100ms",
+        "count": 2,
+        "files": [
+          "src/app/lib/tokens.ts",
+          "src/app/pages/MotionPage.tsx"
+        ]
+      },
+      {
+        "value": "300ms",
+        "count": 2,
+        "files": [
+          "src/app/lib/tokens.ts",
+          "src/app/pages/MotionPage.tsx"
+        ]
+      },
+      {
+        "value": "50ms",
+        "count": 2,
+        "files": [
+          "src/app/lib/tokens.ts",
+          "src/app/pages/MotionPage.tsx"
+        ]
+      },
+      {
+        "value": "0ms",
+        "count": 1,
+        "files": [
+          "src/app/pages/MotionPage.tsx"
+        ]
+      }
+    ],
+    "easings": [
+      {
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "count": 5,
+        "files": [
+          "src/app/lib/tokens.ts",
+          "src/app/pages/MotionPage.tsx"
+        ]
+      },
+      {
+        "value": "linear",
+        "count": 5,
+        "files": [
+          "src/app/components/ui/sidebar.tsx",
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "cubic-bezier(0, 0, 0.2, 1)",
+        "count": 2,
+        "files": [
+          "src/app/lib/tokens.ts",
+          "src/app/pages/MotionPage.tsx"
+        ]
+      },
+      {
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "count": 2,
+        "files": [
+          "src/app/lib/tokens.ts",
+          "src/app/pages/MotionPage.tsx"
+        ]
+      },
+      {
+        "value": "cubic-bezier(0.4, 0, 1, 1)",
+        "count": 2,
+        "files": [
+          "src/app/lib/tokens.ts",
+          "src/app/pages/MotionPage.tsx"
+        ]
+      },
+      {
+        "value": "cubic-bezier(0.4, 0, 0.6, 1)",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      },
+      {
+        "value": "ease-in-out",
+        "count": 1,
+        "files": [
+          "src/app/components/ui/sheet.tsx"
+        ]
+      },
+      {
+        "value": "ease-out",
+        "count": 1,
+        "files": [
+          "src/styles/theme.css"
+        ]
+      }
+    ]
+  }
+}

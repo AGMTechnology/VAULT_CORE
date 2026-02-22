@@ -1,7 +1,7 @@
 export const breakpoints = {
-  base: 0
-} as const;
-
-export const breakpointsTodo = {
-  note: "TODO: MCP call-limit blocked breakpoint extraction. Replace fallback with exact Figma breakpoint tokens."
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  "2xl": "1536px"
 } as const;

@@ -14,11 +14,19 @@
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
   "scripts": {
     "dev": "next dev -p 3026",
     "build": "next build",
     "start": "next start -p 3026",
     "test": "node --test tests",
+    "test:design-system": "tsx --test design-system/tests/no-duplicates.spec.ts design-system/tests/tokens-format.spec.ts design-system/tests/themes-are-derived.spec.ts design-system/tests/contrast.spec.ts",
     "test:tnr": "node --test tests/hardening-e2e.test.mjs tests/execution-orchestrator.integration.test.mjs tests/contract-hub.api.test.mjs",
     "test:ui": "node --test tests/ui-web.integration.test.mjs",
     "dev:web": "next dev -p 3026",

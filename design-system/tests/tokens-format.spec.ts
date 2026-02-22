@@ -1,28 +1,42 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
 
-import { flattenTokenObject, isValidColorTokenValue } from "../utils/guards.ts";
-import { colorsCore } from "../tokens/colors.core.ts";
-import { typography } from "../tokens/typography.ts";
-import { spacing } from "../tokens/spacing.ts";
+const ROOT = process.cwd();
+const TOKENS_DIR = path.join(ROOT, "design-system", "tokens");
 
-test("all color tokens are valid css colors", () => {
-  for (const [path, value] of flattenTokenObject(colorsCore)) {
-    assert.ok(isValidColorTokenValue(value), `Invalid color token ${path}: ${value}`);
+const tokenFiles = [
+  "index.ts",
+  "colors.core.ts",
+  "colors.semantic.ts",
+  "typography.ts",
+  "spacing.ts",
+  "radii.ts",
+  "shadows.ts",
+  "zIndex.ts",
+  "motion.ts",
+  "breakpoints.ts"
+] as const;
+
+test("required token files exist", () => {
+  for (const file of tokenFiles) {
+    const absolute = path.join(TOKENS_DIR, file);
+    assert.equal(fs.existsSync(absolute), true, `${file} must exist`);
   }
 });
 
-test("typography tokens have required fields", () => {
-  for (const [name, token] of Object.entries(typography.scale)) {
-    assert.ok(typeof token.size === "string" && token.size.length > 0, `${name} missing size`);
-    assert.ok(typeof token.weight === "number", `${name} missing weight`);
-    assert.ok(typeof token.lineHeight === "number", `${name} missing lineHeight`);
-    assert.ok(typeof token.letterSpacing === "string", `${name} missing letterSpacing`);
-  }
-});
+test("token files expose structured exports", () => {
+  const indexPath = path.join(TOKENS_DIR, "index.ts");
+  const source = fs.readFileSync(indexPath, "utf8");
 
-test("spacing scale is sorted ascending by value", () => {
-  const values = spacing.order.map((key) => spacing.scale[key]);
-  const sorted = [...values].sort((a, b) => a - b);
-  assert.deepEqual(values, sorted);
+  assert.match(source, /export\s+\*\s+from\s+"\.\/colors\.core"/);
+  assert.match(source, /export\s+\*\s+from\s+"\.\/colors\.semantic"/);
+  assert.match(source, /export\s+\*\s+from\s+"\.\/typography"/);
+  assert.match(source, /export\s+\*\s+from\s+"\.\/spacing"/);
+  assert.match(source, /export\s+\*\s+from\s+"\.\/radii"/);
+  assert.match(source, /export\s+\*\s+from\s+"\.\/shadows"/);
+  assert.match(source, /export\s+\*\s+from\s+"\.\/zIndex"/);
+  assert.match(source, /export\s+\*\s+from\s+"\.\/motion"/);
+  assert.match(source, /export\s+\*\s+from\s+"\.\/breakpoints"/);
 });

@@ -1,0 +1,284 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+  /* VAULT_CORE Light Theme — French Flag Palette */
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #0D2B6B;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #475569;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #EBF0F8;
+  --accent-foreground: #0D2B6B;
+  --destructive: #C41E3A;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(13, 43, 107, 0.10);
+  --input: rgba(13, 43, 107, 0.10);
+  --input-background: #F1F5F9;
+  --switch-background: #CBD5E1;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #0D2B6B;
+
+  /* VAULT_CORE Semantic Colors */
+  --vc-success: #10B981;
+  --vc-success-dim: rgba(16, 185, 129, 0.10);
+  --vc-warning: #F59E0B;
+  --vc-warning-dim: rgba(245, 158, 11, 0.10);
+  --vc-error: #C41E3A;
+  --vc-error-dim: rgba(196, 30, 58, 0.08);
+  --vc-info: #2563EB;
+  --vc-info-dim: rgba(37, 99, 235, 0.08);
+
+  /* Neutral Scale (light theme — high numbers = dark) */
+  --vc-neutral-950: #020617;
+  --vc-neutral-900: #0F172A;
+  --vc-neutral-850: #1E293B;
+  --vc-neutral-800: #334155;
+  --vc-neutral-750: #3F4E63;
+  --vc-neutral-700: #475569;
+  --vc-neutral-600: #64748B;
+  --vc-neutral-500: #94A3B8;
+  --vc-neutral-400: #CBD5E1;
+  --vc-neutral-300: #E2E8F0;
+  --vc-neutral-200: #F1F5F9;
+  --vc-neutral-100: #F8FAFC;
+  --vc-neutral-50: #FFFFFF;
+
+  /* French Flag Palette Accents */
+  --vc-flag-navy: #0D2B6B;
+  --vc-flag-skyblue: #9DC3DE;
+  --vc-flag-white: #FFFFFF;
+  --vc-flag-rose: #C49BA3;
+  --vc-flag-crimson: #8B1228;
+
+  /* Workflow States */
+  --vc-pending: #94A3B8;
+  --vc-pending-dim: rgba(148, 163, 184, 0.15);
+  --vc-running: #0D2B6B;
+  --vc-running-dim: rgba(13, 43, 107, 0.08);
+  --vc-blocked: #F59E0B;
+  --vc-blocked-dim: rgba(245, 158, 11, 0.10);
+  --vc-validated: #10B981;
+  --vc-validated-dim: rgba(16, 185, 129, 0.10);
+  --vc-failed: #C41E3A;
+  --vc-failed-dim: rgba(196, 30, 58, 0.08);
+
+  /* Agent States */
+  --vc-agent-idle: #94A3B8;
+  --vc-agent-active: #0D2B6B;
+  --vc-agent-processing: #2E8BC0;
+  --vc-agent-error: #C41E3A;
+  --vc-agent-complete: #10B981;
+
+  /* Quality Gate States */
+  --vc-gate-pending: #94A3B8;
+  --vc-gate-review: #F59E0B;
+  --vc-gate-passed: #10B981;
+  --vc-gate-failed: #C41E3A;
+  --vc-gate-skipped: #CBD5E1;
+
+  /* Surfaces (light theme) */
+  --vc-surface-0: #F8FAFC;
+  --vc-surface-1: #FFFFFF;
+  --vc-surface-2: #F1F5F9;
+  --vc-surface-3: #E2E8F0;
+  --vc-surface-4: #D5DDE8;
+
+  /* Chart Colors */
+  --chart-1: #0D2B6B;
+  --chart-2: #10B981;
+  --chart-3: #C49BA3;
+  --chart-4: #9DC3DE;
+  --chart-5: #8B1228;
+
+  --radius: 0.5rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #64748B;
+  --sidebar-primary: #0D2B6B;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F1F5F9;
+  --sidebar-accent-foreground: #0F172A;
+  --sidebar-border: rgba(13, 43, 107, 0.08);
+  --sidebar-ring: #0D2B6B;
+}
+
+@theme inline {
+  --font-family-sans: var(--font-sans);
+  --font-family-mono: var(--font-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* VAULT_CORE Extended Colors */
+  --color-vc-success: var(--vc-success);
+  --color-vc-success-dim: var(--vc-success-dim);
+  --color-vc-warning: var(--vc-warning);
+  --color-vc-warning-dim: var(--vc-warning-dim);
+  --color-vc-error: var(--vc-error);
+  --color-vc-error-dim: var(--vc-error-dim);
+  --color-vc-info: var(--vc-info);
+  --color-vc-info-dim: var(--vc-info-dim);
+  --color-vc-pending: var(--vc-pending);
+  --color-vc-pending-dim: var(--vc-pending-dim);
+  --color-vc-running: var(--vc-running);
+  --color-vc-running-dim: var(--vc-running-dim);
+  --color-vc-blocked: var(--vc-blocked);
+  --color-vc-blocked-dim: var(--vc-blocked-dim);
+  --color-vc-validated: var(--vc-validated);
+  --color-vc-validated-dim: var(--vc-validated-dim);
+  --color-vc-failed: var(--vc-failed);
+  --color-vc-failed-dim: var(--vc-failed-dim);
+  --color-vc-surface-0: var(--vc-surface-0);
+  --color-vc-surface-1: var(--vc-surface-1);
+  --color-vc-surface-2: var(--vc-surface-2);
+  --color-vc-surface-3: var(--vc-surface-3);
+  --color-vc-surface-4: var(--vc-surface-4);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom scrollbar for VAULT_CORE */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 43, 107, 0.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(13, 43, 107, 0.22);
+}
+
+/* Animations */
+@keyframes vc-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes vc-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes vc-slide-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.vc-animate-pulse {
+  animation: vc-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.vc-animate-spin {
+  animation: vc-spin 1s linear infinite;
+}
+.vc-animate-slide-in {
+  animation: vc-slide-in 0.2s ease-out;
+}

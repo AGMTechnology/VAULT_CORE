@@ -1,11 +1,8 @@
-import { spacing } from "../tokens/spacing.ts";
-import { radii } from "../tokens/radii.ts";
-import type { DensityDefinition } from "../utils/tokenTypes.ts";
+import { spacing } from "../tokens/spacing";
 
-export const densityCompact: DensityDefinition = {
-  name: "compact",
-  controlHeight: spacing.scale["8"],
-  contentGap: spacing.scale["3"],
-  sectionGap: spacing.scale["4"],
-  cornerRadius: radii["7"]
-};
+export const densityCompact = {
+  id: "compact",
+  spacingMultiplier: 0.875,
+  base: spacing.scale,
+  note: "TODO: Compact density inferred minimally from comfortable scale to support future runtime toggle."
+} as const;

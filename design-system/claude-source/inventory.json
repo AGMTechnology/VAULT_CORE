@@ -1,0 +1,499 @@
+{
+  "generatedAt": "2026-02-22T00:27:04.248Z",
+  "sourceRoot": "Design System for VAULT_CORE",
+  "stack": {
+    "framework": "Vite + React",
+    "styling": "Tailwind v4 + CSS variables",
+    "uiLibraries": [
+      "@emotion/react",
+      "@emotion/styled",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-alert-dialog",
+      "@radix-ui/react-aspect-ratio",
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-checkbox",
+      "@radix-ui/react-collapsible",
+      "@radix-ui/react-context-menu",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-dropdown-menu",
+      "@radix-ui/react-hover-card",
+      "@radix-ui/react-label",
+      "@radix-ui/react-menubar",
+      "@radix-ui/react-navigation-menu",
+      "@radix-ui/react-popover",
+      "@radix-ui/react-progress",
+      "@radix-ui/react-radio-group",
+      "@radix-ui/react-scroll-area",
+      "@radix-ui/react-select",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slider",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-switch",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-toggle",
+      "@radix-ui/react-toggle-group",
+      "@radix-ui/react-tooltip",
+      "lucide-react",
+      "motion",
+      "tailwind-merge"
+    ]
+  },
+  "files": {
+    "total": 85,
+    "code": 83
+  },
+  "components": {
+    "ui": [
+      {
+        "name": "accordion",
+        "canonicalName": "Accordion",
+        "file": "src/app/components/ui/accordion.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "alert",
+        "canonicalName": "Alert",
+        "file": "src/app/components/ui/alert.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "alert-dialog",
+        "canonicalName": "AlertDialog",
+        "file": "src/app/components/ui/alert-dialog.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "aspect-ratio",
+        "canonicalName": "AspectRatio",
+        "file": "src/app/components/ui/aspect-ratio.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "avatar",
+        "canonicalName": "Avatar",
+        "file": "src/app/components/ui/avatar.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "badge",
+        "canonicalName": "Badge",
+        "file": "src/app/components/ui/badge.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "breadcrumb",
+        "canonicalName": "Breadcrumb",
+        "file": "src/app/components/ui/breadcrumb.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "button",
+        "canonicalName": "Button",
+        "file": "src/app/components/ui/button.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "calendar",
+        "canonicalName": "Calendar",
+        "file": "src/app/components/ui/calendar.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "card",
+        "canonicalName": "Card",
+        "file": "src/app/components/ui/card.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "carousel",
+        "canonicalName": "Carousel",
+        "file": "src/app/components/ui/carousel.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "chart",
+        "canonicalName": "Chart",
+        "file": "src/app/components/ui/chart.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "checkbox",
+        "canonicalName": "Checkbox",
+        "file": "src/app/components/ui/checkbox.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "collapsible",
+        "canonicalName": "Collapsible",
+        "file": "src/app/components/ui/collapsible.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "command",
+        "canonicalName": "Command",
+        "file": "src/app/components/ui/command.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "context-menu",
+        "canonicalName": "ContextMenu",
+        "file": "src/app/components/ui/context-menu.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "dialog",
+        "canonicalName": "Dialog",
+        "file": "src/app/components/ui/dialog.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "drawer",
+        "canonicalName": "Drawer",
+        "file": "src/app/components/ui/drawer.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "dropdown-menu",
+        "canonicalName": "DropdownMenu",
+        "file": "src/app/components/ui/dropdown-menu.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "form",
+        "canonicalName": "Form",
+        "file": "src/app/components/ui/form.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "hover-card",
+        "canonicalName": "HoverCard",
+        "file": "src/app/components/ui/hover-card.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "input",
+        "canonicalName": "Input",
+        "file": "src/app/components/ui/input.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "input-otp",
+        "canonicalName": "InputOtp",
+        "file": "src/app/components/ui/input-otp.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "label",
+        "canonicalName": "Label",
+        "file": "src/app/components/ui/label.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "menubar",
+        "canonicalName": "Menubar",
+        "file": "src/app/components/ui/menubar.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "navigation-menu",
+        "canonicalName": "NavigationMenu",
+        "file": "src/app/components/ui/navigation-menu.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "pagination",
+        "canonicalName": "Pagination",
+        "file": "src/app/components/ui/pagination.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "popover",
+        "canonicalName": "Popover",
+        "file": "src/app/components/ui/popover.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "progress",
+        "canonicalName": "Progress",
+        "file": "src/app/components/ui/progress.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "radio-group",
+        "canonicalName": "RadioGroup",
+        "file": "src/app/components/ui/radio-group.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "resizable",
+        "canonicalName": "Resizable",
+        "file": "src/app/components/ui/resizable.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "scroll-area",
+        "canonicalName": "ScrollArea",
+        "file": "src/app/components/ui/scroll-area.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "select",
+        "canonicalName": "Select",
+        "file": "src/app/components/ui/select.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "separator",
+        "canonicalName": "Separator",
+        "file": "src/app/components/ui/separator.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "sheet",
+        "canonicalName": "Sheet",
+        "file": "src/app/components/ui/sheet.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "sidebar",
+        "canonicalName": "Sidebar",
+        "file": "src/app/components/ui/sidebar.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "skeleton",
+        "canonicalName": "Skeleton",
+        "file": "src/app/components/ui/skeleton.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "slider",
+        "canonicalName": "Slider",
+        "file": "src/app/components/ui/slider.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "sonner",
+        "canonicalName": "Sonner",
+        "file": "src/app/components/ui/sonner.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "switch",
+        "canonicalName": "Switch",
+        "file": "src/app/components/ui/switch.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "table",
+        "canonicalName": "Table",
+        "file": "src/app/components/ui/table.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "tabs",
+        "canonicalName": "Tabs",
+        "file": "src/app/components/ui/tabs.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "textarea",
+        "canonicalName": "Textarea",
+        "file": "src/app/components/ui/textarea.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "toggle",
+        "canonicalName": "Toggle",
+        "file": "src/app/components/ui/toggle.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "toggle-group",
+        "canonicalName": "ToggleGroup",
+        "file": "src/app/components/ui/toggle-group.tsx",
+        "category": "ui"
+      },
+      {
+        "name": "tooltip",
+        "canonicalName": "Tooltip",
+        "file": "src/app/components/ui/tooltip.tsx",
+        "category": "ui"
+      }
+    ],
+    "vault": [
+      {
+        "name": "AgentCard",
+        "canonicalName": "AgentCard",
+        "file": "src/app/components/vault/AgentCard.tsx",
+        "category": "vault"
+      },
+      {
+        "name": "ContractCard",
+        "canonicalName": "ContractCard",
+        "file": "src/app/components/vault/ContractCard.tsx",
+        "category": "vault"
+      },
+      {
+        "name": "LogViewer",
+        "canonicalName": "LogViewer",
+        "file": "src/app/components/vault/LogViewer.tsx",
+        "category": "vault"
+      },
+      {
+        "name": "MemoryViewer",
+        "canonicalName": "MemoryViewer",
+        "file": "src/app/components/vault/MemoryViewer.tsx",
+        "category": "vault"
+      },
+      {
+        "name": "MetricCard",
+        "canonicalName": "MetricCard",
+        "file": "src/app/components/vault/MetricCard.tsx",
+        "category": "vault"
+      },
+      {
+        "name": "QualityGate",
+        "canonicalName": "QualityGate",
+        "file": "src/app/components/vault/QualityGate.tsx",
+        "category": "vault"
+      },
+      {
+        "name": "WorkflowTimeline",
+        "canonicalName": "WorkflowTimeline",
+        "file": "src/app/components/vault/WorkflowTimeline.tsx",
+        "category": "vault"
+      }
+    ],
+    "layout": [
+      {
+        "name": "AppLayout",
+        "canonicalName": "AppLayout",
+        "file": "src/app/components/layout/AppLayout.tsx",
+        "category": "layout"
+      },
+      {
+        "name": "Section",
+        "canonicalName": "Section",
+        "file": "src/app/components/layout/Section.tsx",
+        "category": "layout"
+      },
+      {
+        "name": "Sidebar",
+        "canonicalName": "Sidebar",
+        "file": "src/app/components/layout/Sidebar.tsx",
+        "category": "layout"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "name": "AccessibilityPage",
+      "file": "src/app/pages/AccessibilityPage.tsx"
+    },
+    {
+      "name": "ColorsPage",
+      "file": "src/app/pages/ColorsPage.tsx"
+    },
+    {
+      "name": "ComponentsPage",
+      "file": "src/app/pages/ComponentsPage.tsx"
+    },
+    {
+      "name": "DashboardPage",
+      "file": "src/app/pages/DashboardPage.tsx"
+    },
+    {
+      "name": "IconsPage",
+      "file": "src/app/pages/IconsPage.tsx"
+    },
+    {
+      "name": "InteractionsPage",
+      "file": "src/app/pages/InteractionsPage.tsx"
+    },
+    {
+      "name": "MotionPage",
+      "file": "src/app/pages/MotionPage.tsx"
+    },
+    {
+      "name": "ScreensPage",
+      "file": "src/app/pages/ScreensPage.tsx"
+    },
+    {
+      "name": "SpacingPage",
+      "file": "src/app/pages/SpacingPage.tsx"
+    },
+    {
+      "name": "TokensPage",
+      "file": "src/app/pages/TokensPage.tsx"
+    },
+    {
+      "name": "TypographyPage",
+      "file": "src/app/pages/TypographyPage.tsx"
+    }
+  ],
+  "dependencies": {
+    "dependencies": {
+      "@emotion/react": "11.14.0",
+      "@emotion/styled": "11.14.1",
+      "@mui/icons-material": "7.3.5",
+      "@mui/material": "7.3.5",
+      "@popperjs/core": "2.11.8",
+      "@radix-ui/react-accordion": "1.2.3",
+      "@radix-ui/react-alert-dialog": "1.1.6",
+      "@radix-ui/react-aspect-ratio": "1.1.2",
+      "@radix-ui/react-avatar": "1.1.3",
+      "@radix-ui/react-checkbox": "1.1.4",
+      "@radix-ui/react-collapsible": "1.1.3",
+      "@radix-ui/react-context-menu": "2.2.6",
+      "@radix-ui/react-dialog": "1.1.6",
+      "@radix-ui/react-dropdown-menu": "2.1.6",
+      "@radix-ui/react-hover-card": "1.1.6",
+      "@radix-ui/react-label": "2.1.2",
+      "@radix-ui/react-menubar": "1.1.6",
+      "@radix-ui/react-navigation-menu": "1.2.5",
+      "@radix-ui/react-popover": "1.1.6",
+      "@radix-ui/react-progress": "1.1.2",
+      "@radix-ui/react-radio-group": "1.2.3",
+      "@radix-ui/react-scroll-area": "1.2.3",
+      "@radix-ui/react-select": "2.1.6",
+      "@radix-ui/react-separator": "1.1.2",
+      "@radix-ui/react-slider": "1.2.3",
+      "@radix-ui/react-slot": "1.1.2",
+      "@radix-ui/react-switch": "1.1.3",
+      "@radix-ui/react-tabs": "1.1.3",
+      "@radix-ui/react-toggle-group": "1.1.2",
+      "@radix-ui/react-toggle": "1.1.2",
+      "@radix-ui/react-tooltip": "1.1.8",
+      "class-variance-authority": "0.7.1",
+      "clsx": "2.1.1",
+      "cmdk": "1.1.1",
+      "date-fns": "3.6.0",
+      "embla-carousel-react": "8.6.0",
+      "input-otp": "1.4.2",
+      "lucide-react": "0.487.0",
+      "motion": "12.23.24",
+      "next-themes": "0.4.6",
+      "react-day-picker": "8.10.1",
+      "react-dnd": "16.0.1",
+      "react-dnd-html5-backend": "16.0.1",
+      "react-hook-form": "7.55.0",
+      "react-popper": "2.3.0",
+      "react-resizable-panels": "2.1.7",
+      "react-responsive-masonry": "2.7.1",
+      "react-router": "7.13.0",
+      "react-slick": "0.31.0",
+      "recharts": "2.15.2",
+      "sonner": "2.0.3",
+      "tailwind-merge": "3.2.0",
+      "tw-animate-css": "1.3.8",
+      "vaul": "1.1.2"
+    },
+    "devDependencies": {
+      "@tailwindcss/vite": "4.1.12",
+      "@vitejs/plugin-react": "4.7.0",
+      "tailwindcss": "4.1.12",
+      "vite": "6.3.5"
+    }
+  }
+}

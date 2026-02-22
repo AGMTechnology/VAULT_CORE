@@ -1,55 +1,46 @@
 # VAULT_CORE Design System
 
-`design-system/` is the code source-of-truth generated from Figma MCP extraction.
+Rebuilt from the Claude showcase source located in `Design System for VAULT_CORE/`.
 
-## Stack Detection
-- Detected stack: `Next.js + React + TypeScript`
-- Tailwind detected: `no`
-- React Native runtime detected: `no` (RN export file is still generated for parity)
+## Scope
+- UI source of truth: `Design System for VAULT_CORE/`
+- Product source of truth: VAULT_CORE hub workflows and API contracts
+- Visual policy: no ad-hoc screen values outside DS tokens
 
-## Structure
-- `figma/`: traceable MCP dump and mapping
-- `tokens/`: core + semantic token layers
-- `themes/`: `light`, `dark`, density presets
-- `exports/css/`: CSS custom properties
-- `exports/react-native/`: typed RN theme export
-- `docs/`: usage, states, accessibility notes
-- `tests/`: token/theme quality gates
+## Stack Detection (Phase 0)
+- Product app: Next.js App Router + React (`app/`)
+- Product styling: global CSS (`app/globals.css`)
+- Showcase stack: Vite + React + Tailwind v4 + Radix UI
+- Routing:
+  - Product: Next app routes (`app/*`)
+  - Showcase: React Router (`src/app/routes.ts`)
 
-## Agent Controls + Icons
-- `tokens/agent-controls.ts` contains the 6 control variants:
-  - `Execute`, `Pause`, `Retry`, `Approve`, `Reject`, `Review`
-- Icon spec follows provided design screenshot:
-  - `Lucide React`, `stroke 1.75px`, `size 16px (w-4 h-4)`, `outlined geometric`
+## Main Paths
+- `claude-source/`: extraction artifacts (`inventory`, style audit, token candidates, map)
+- `tokens/`: canonical token source
+- `themes/`: resolved theme layers
+- `exports/css/`: runtime CSS variables
+- `exports/tailwind/`: optional Tailwind preset
+- `components/`: reusable primitives, patterns, and VAULT_CORE components
+- `docs/`: usage docs and state/accessibility conventions
+- `tests/`: DS quality gates
 
-## Usage (Web)
-1. Import CSS vars:
+## Usage
+1. Import tokens CSS once in app global styles:
+```css
+@import "../design-system/exports/css/variables.css";
+@import "../design-system/exports/css/variables.dark.css";
+@import "../design-system/components/styles/system.css";
+```
+2. Use DS components:
+```tsx
+import { Button, ContractCard } from "../design-system/components";
+```
+3. Resolve theme in TS where needed:
 ```ts
-import "../design-system/exports/css/variables.css";
-import "../design-system/exports/css/variables.dark.css";
-```
-2. Toggle dark mode with:
-```html
-<html data-theme="dark">
-```
-3. Consume TS themes:
-```ts
-import { lightTheme } from "../design-system/themes/light.ts";
-import { darkTheme } from "../design-system/themes/dark.ts";
+import { resolveTheme } from "../design-system/utils/resolveTheme";
 ```
 
-## Usage (React Native)
-```ts
-import { reactNativeTheme } from "../design-system/exports/react-native/theme.ts";
-```
-
-## Tests
-Run:
-```bash
-npx --yes tsx --test design-system/tests/*.spec.ts
-```
-
-## Notes
-- `get_design_context` was blocked by Figma MCP call-limit during this run.
-- Missing values are marked with explicit TODOs in token/docs files.
-- Tailwind preset was not generated because Tailwind was not detected in this repository.
+## TODOs
+- Dark theme and density matrix are inferred minimally because showcase does not define full matrices explicitly.
+- Advanced Radix behavior parity is intentionally deferred to demand-driven implementation (documented in `claude-source/components-map.md`).

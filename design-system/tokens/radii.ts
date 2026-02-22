@@ -1,12 +1,14 @@
-﻿export const radii = {
-  "3.5": 3.5,
-  "5": 5,
-  "7": 7,
-  "11": 11,
-  "24.5": 24.5,
-  full: 26843500
+export const radii = {
+  none: 0,
+  sm: 4,
+  md: 6,
+  lg: 8,
+  xl: 10,
+  "2xl": 12,
+  "3xl": 16,
+  full: 9999
 } as const;
 
-export const radiiTodo = {
-  note: "TODO: validate complete radius scale from Figma when MCP call-limit resets."
-} as const;
+export function radiusPx(token: keyof typeof radii): string {
+  return `${radii[token]}px`;
+}

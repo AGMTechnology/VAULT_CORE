@@ -1,19 +1,15 @@
 # Accessibility
 
-## Contrast Baseline
-- Automated test checks body-text contrast for both themes:
-  - light: `textDefault` on `surface0` >= 4.5
-  - dark: `textDefault` on `surface0` >= 4.5
+## Baseline rules
+- Maintain text/background contrast >= 4.5 for normal text.
+- Use semantic HTML for tables, forms, and navigation.
+- Preserve focus visibility on interactive controls.
+- Use `aria-label` on icon-only actions.
 
-See: `tests/contrast.spec.ts`.
-
-## Color Semantics
-- Status colors are explicit (`Success`, `Warning`, `Error`, `Info`) and mapped via semantic tokens.
-- Workflow/agent/quality-gate states are mapped to semantic layers in `tokens/colors.semantic.ts`.
+## Implemented checks
+- `tests/contrast.spec.ts` validates core contrast pair.
+- Form primitives expose native controls for keyboard/screen reader support.
+- `Modal` includes dismiss action and overlay semantics.
 
 ## TODO
-- MCP call-limit blocked full extraction of accessibility section details from Figma.
-- Add complete WCAG mapping from Figma node once quota resets:
-  - minimum text sizes and exceptions
-  - component-level focus ring rules
-  - disabled/loading contrast rules
+- Add automated keyboard navigation tests for menu/dialog aliases when advanced interaction parity is required.

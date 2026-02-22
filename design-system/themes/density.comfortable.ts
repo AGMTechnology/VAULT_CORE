@@ -1,11 +1,8 @@
-import { spacing } from "../tokens/spacing.ts";
-import { radii } from "../tokens/radii.ts";
-import type { DensityDefinition } from "../utils/tokenTypes.ts";
+import { spacing } from "../tokens/spacing";
 
-export const densityComfortable: DensityDefinition = {
-  name: "comfortable",
-  controlHeight: spacing.scale["10"],
-  contentGap: spacing.scale["4"],
-  sectionGap: spacing.scale["6"],
-  cornerRadius: radii["11"]
-};
+export const densityComfortable = {
+  id: "comfortable",
+  spacingMultiplier: 1,
+  base: spacing.scale,
+  note: "TODO: Claude showcase does not define an explicit density matrix. Comfortable is the extracted default."
+} as const;

@@ -1,7 +1,9 @@
 export const zIndex = {
-  base: 0
-} as const;
-
-export const zIndexTodo = {
-  note: "TODO: MCP call-limit blocked z-index scale extraction. Replace fallback with exact Figma z-index tokens."
+  base: 0,
+  dropdown: 10,
+  sticky: 20,
+  overlay: 30,
+  modal: 40,
+  popover: 50,
+  toast: 60
 } as const;
